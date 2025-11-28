@@ -3,41 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Propose Battle</title>
+  <title>Propose Battle • Web3 Battle Series</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body { background: #000; color: #e2e8f0; min-height: 100vh; }
-    .grid-bg { position: fixed; inset: 0; z-index: -1; pointer-events: none;
-      background-image: linear-gradient(rgba(168,85,247,0.15) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(168,85,247,0.15) 1px, transparent 1px);
-      background-size: 70px 70px; animation: flow 100s linear infinite; }
-    @keyframes flow { from { background-position: 0 0; } to { background-position: 70px 70px; } }
-    .glass { background: rgba(30,30,50,0.55); backdrop-filter: blur(16px); border: 1px solid rgba(168,85,247,0.35); }
+    body { background:#000; color:#e2e8f0; margin:0; padding:0; min-height:100vh; }
+    .grid { position:fixed; inset:0; z-index:-1; pointer-events:none;
+      background-image:linear-gradient(rgba(168,85,247,0.15) 1px,transparent 1px),
+                        linear-gradient(90deg,rgba(168,85,247,0.15) 1px,transparent 1px);
+      background-size:70px 70px; animation:f 100s linear infinite; }
+    @keyframes f { from{background-position:0 0} to{background-position:70px 70px} }
+    .glass { background:rgba(30,30,50,0.6); backdrop-filter:blur(16px); border:1px solid rgba(168,85,247,0.4); }
   </style>
 </head>
-<body class="grid-bg">
+<body class="grid">
 
-  <header class="fixed top-0 w-full bg-black/80 backdrop-blur-xl border-b border-purple-900/50 z-50">
+  <!-- WORKING BACK BUTTON + LOGO -->
+  <div class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-purple-900/50">
     <div class="px-6 py-4 flex justify-between items-center">
+      <a href="/" class="text-3xl text-purple-400">←</a>
       <img src="https://pbs.twimg.com/profile_images/1982158382262894593/fEetDFDh_400x400.jpg" alt="Logo" class="w-12 h-12 rounded-full ring-2 ring-purple-500">
-      <a href="/" class="text-2xl text-purple-400">←</a>
     </div>
-  </header>
+  </div>
 
-  <main class="pt-24 pb-20 px-6 max-w-2xl mx-auto">
-    <h1 class="text-4xl font-black text-center mb-8 bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">Propose a Battle</h1>
-    
-    <form action="https://formspree.io/f/mldyanle" method="POST" class="space-y-6 glass p-8 rounded-3xl">
-      <input type="text" name="Project A" placeholder="Project A" required class="w-full px-5 py-4 rounded-xl bg-black/60 border border-purple-500/40 text-white">
-      <input type="text" name="Project B" placeholder="Project B" required class="w-full px-5 py-4 rounded-xl bg-black/60 border border-purple-500/40 text-white">
-      <input type="text" name="Weight Class" placeholder="Weight Class" required class="w-full px-5 py-4 rounded-xl bg-black/60 border border-purple-500/40 text-white">
-      <textarea name="Justification" rows="3" placeholder="Why this matchup?" required class="w-full px-5 py-4 rounded-xl bg-black/60 border border-purple-500/40 text-white"></textarea>
-      <textarea name="Criteria" rows="3" placeholder="Suggested criteria" required class="w-full px-5 py-4 rounded-xl bg-black/60 border border-purple-500/40 text-white"></textarea>
-      <input type="text" name="Contact" placeholder="Twitter / Email" required class="w-full px-5 py-4 rounded-xl bg-black/60 border border-purple-500/40 text-white">
-      <button type="submit" class="w-full py-5 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold rounded-xl text-xl">Submit Proposal</button>
+  <!-- MAIN CONTENT – GUARANTEED SCROLLABLE -->
+  <div class="pt-28 pb-32 px-6 max-w-xl mx-auto">
+    <h1 class="text-4xl font-black text-center mb-8 bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
+      Propose a Battle
+    </h1>
+
+    <form action="https://formspree.io/f/mldyanle" method="POST" class="space-y-5 glass p-8 rounded-3xl">
+      <input type="text" name="Project A" placeholder="Project A" required class="w-full px-5 py-4 rounded-xl bg-black/60 border border-purple-500/40 text-white text-base">
+      <input type="text" name="Project B" placeholder="Project B" required class="w-full px-5 py-4 rounded-xl bg-black/60 border border-purple-500/40 text-white text-base">
+      <input type="text" name="Weight Class" placeholder="Weight Class (e.g. L2s)" required class="w-full px-5 py-4 rounded-xl bg-black/60 border border-purple-500/40 text-white text-base">
+      <textarea name="Why" rows="3" placeholder="Why this matchup?" required class="w-full px-5 py-4 rounded-xl bg-black/60 border border-purple-500/40 text-white text-base"></textarea>
+      <textarea name="Criteria" rows="3" placeholder="Suggested 3–5 criteria" class="w-full px-5 py-4 rounded-xl bg-black/60 border border-purple-500/40 text-white text-base"></textarea>
+      <input type="text" name="Contact" placeholder="Twitter or Email" required class="w-full px-5 py-4 rounded-xl bg-black/60 border border-purple-500/40 text-white text-base">
+
+      <button type="submit" class="w-full py-5 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-bold rounded-xl text-xl">
+        Submit Proposal
+      </button>
     </form>
-    
-    <a href="/" class="block text-center mt-10 text-purple-400 hover:text-white text-lg font-bold">← Back to Home</a>
-  </main>
+
+    <a href="/" class="block text-center mt-10 text-purple-400 hover:text-white text-lg font-bold">
+      ← Back to Home
+    </a>
+  </div>
 </body>
 </html>
