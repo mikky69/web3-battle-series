@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -8,138 +8,138 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <script>
+    // Dark/Light mode with localStorage persistence
+    if (localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+      document.documentElement.classList.add('light')
+    } else {
+      document.documentElement.classList.remove('light')
+    }
+  </script>
   <style>
-    body { font-family: 'Inter', sans-serif; background: #000; color: #e2e8f0; }
-    .gradient-border { 
-      background: linear-gradient(90deg, transparent, #9333ea 50%, transparent); 
-      padding: 1px; border-radius: 1rem; 
-    }
+    :root { --purple: #9333ea; --purple-dark: #a855f7; }
+    .light { background: #f8fafc; color: #1e293b; }
+    .light .bg-black { background: #ffffff; }
+    .light .text-gray-100 { color: #1e293b; }
+    .light .bg-gradient-to-b { background: linear-gradient(to bottom, #f3e8ff, #ffffff); }
     .card-hover { transition: all 0.4s ease; }
-    .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(147,51,234,0.15); }
-    .fade-edge { 
-      position: relative; 
-      overflow: hidden; 
-    }
-    .fade-edge::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 100px;
-      background: linear-gradient(to bottom, #000 0%, transparent 100%);
-      z-index: 10;
-    }
-    .fade-edge::after {
-      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 150px;
-      background: linear-gradient(to top, #000 0%, transparent 100%);
-      z-index: 10;
-    }
+    .card-hover:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(147,51,234,0.2); }
   </style>
 </head>
-<body class="bg-black text-gray-100 min-h-screen">
+<body class="bg-black text-gray-100 transition-colors duration-500">
+
+  <!-- MODE TOGGLE -->
+  <div class="fixed top-6 right-6 z-50">
+    <button onclick="document.documentElement.classList.toggle('light'); localStorage.theme = document.documentElement.classList.contains('light') ? 'light' : 'dark'"
+            class="p-3 bg-white/10 backdrop-blur-md border border-purple-600/30 rounded-full w-12 h-12 flex items-center justify-center hover:bg-purple-600/20 transition">
+      <i class="fas fa-moon text-purple-400 hidden dark:inline"></i>
+      <i class="fas fa-sun text-yellow-400 light:inline hidden"></i>
+    </button>
+  </div>
 
   <!-- HERO -->
-  <section class="relative h-screen flex items-center justify-center fade-edge">
-    <div class="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-black to-black"></div>
-    <div class="relative z-20 text-center px-6 max-w-5xl">
+  <section class="relative h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-purple-900/30 via-black to-black light:from-purple-200/30 light:via-white light:to-white"></div>
+    <div class="relative z-10 text-center px-6 max-w-5xl">
       <img src="https://pbs.twimg.com/profile_images/1982158382262894593/fEetDFDh_400x400.jpg" 
-           alt="Parabolic DAO" class="w-32 h-32 mx-auto mb-8 rounded-full ring-4 ring-purple-600/50 shadow-2xl"/>
-      <h1 class="text-6xl md:text-8xl font-black tracking-tighter bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
+           alt="Parabolic DAO" class="w-32 h-32 mx-auto mb-8 rounded-full ring-4 ring-purple-600 shadow-2xl"/>
+      <h1 class="text-6xl md:text-8xl font-black tracking-tighter bg-gradient-to-r from-purple-400 via-pink-500 to-purple-600 bg-clip-text text-transparent">
         WEB3 BATTLE SERIES
       </h1>
-      <p class="mt-6 text-xl md:text-2xl text-gray-400 font-light">Fair. Transparent. Judge-decided.</p>
+      <p class="mt-8 text-xl md:text-2xl text-gray-400 light:text-gray-600 font-light">Fair. Transparent. Judge-decided.</p>
       <div class="mt-12 flex flex-col sm:flex-row gap-6 justify-center">
-        <a href="/propose-battle.html" class="px-10 py-4 bg-purple-600 hover:bg-purple-500 text-white font-semibold rounded-full transition shadow-lg">Propose Battle</a>
-        <a href="/apply-judge.html" class="px-10 py-4 border border-purple-600 hover:bg-purple-600/10 text-white font-semibold rounded-full transition">Become a Judge</a>
+        <a href="/propose-battle.html" class="px-12 py-5 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded-full transition shadow-xl text-lg">Propose Battle</a>
+        <a href="/apply-judge.html" class="px-12 py-5 border-2 border-purple-600 hover:bg-purple-600/10 text-white font-bold rounded-full transition text-lg">Become Judge</a>
       </div>
-      <div class="mt-10">
-        <a href="https://docs.google.com/document/d/1-lUXO-x-CM5Exf4R4Qv6nzsaqY_pVweF8PUmSpgb45w/edit?usp=sharing" 
-           target="_blank" class="text-purple-400 hover:text-purple-300 text-sm tracking-wider">OFFICIAL RULEBOOK →</a>
-      </div>
+      <a href="https://docs.google.com/document/d/1-lUXO-x-CM5Exf4R4Qv6nzsaqY_pVweF8PUmSpgb45w/edit?usp=sharing" target="_blank"
+         class="inline-block mt-10 text-purple-400 hover:text-purple-300 text-sm tracking-wider">OFFICIAL RULEBOOK →</a>
     </div>
   </section>
 
   <!-- WHAT IS -->
-  <section class="py-24 px-6 max-w-6xl mx-auto">
-    <div class="text-center mb-16">
-      <h2 class="text-5xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">What is Web3 Battle Series?</h2>
-      <p class="mt-6 text-xl text-gray-400 max-w-3xl mx-auto">
-        A boxing-style competition that puts two comparable Web3 projects head-to-head.<br>
-        No price talk. No KOLs. Just data, execution, and three independent judges using the 10-point must system.
-      </p>
-    </div>
+  <section class="py-28 px-6 max-w-7xl mx-auto">
+    <h2 class="text-center text-5xl md:text-6xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent mb-20">
+      What is Web3 Battle Series?
+    </h2>
+    <p class="text-center text-xl text-gray-400 light:text-gray-600 max-w-4xl mx-auto leading-relaxed mb-20">
+      A boxing-inspired, judge-decided tournament that pits two similar Web3 projects against each other.<br class="hidden md:block">
+      No price pumping. No shilling. Just facts, data, and three independent judges using the professional 10-point must system.
+    </p>
 
-    <div class="grid md:grid-cols-3 gap-10 mt-20">
-      <div class="bg-gradient-to-br from-purple-900/20 to-black p-8 rounded-2xl border border-purple-800/50 card-hover">
-        <div class="w-16 h-16 bg-purple-600/20 rounded-full flex items-center justify-center mb-6">
-          <i class="fas fa-weight-hanging text-2xl text-purple-400"></i>
+    <div class="grid md:grid-cols-3 gap-12">
+      <div class="text-center p-10 bg-gradient-to-br from-purple-900/20 to-transparent rounded-3xl border border-purple-800/30 card-hover">
+        <div class="w-20 h-20 mx-auto mb-6 bg-purple-600/20 rounded-2xl flex items-center justify-center">
+          <i class="fas fa-weight-hanging text-3xl text-purple-400"></i>
         </div>
-        <h3 class="text-2xl font-bold text-white mb-3">Fair Weight Classes</h3>
-        <p class="text-gray-400">Only projects of similar size and maturity compete</p>
+        <h3 class="text-2xl font-bold mb-4">Fair Weight Classes</h3>
+        <p class="text-gray-400 light:text-gray-600">Only comparable projects fight</p>
       </div>
-      <div class="bg-gradient-to-br from-purple-900/20 to-black p-8 rounded-2xl border border-purple-800/50 card-hover">
-        <div class="w-16 h-16 bg-purple-600/20 rounded-full flex items-center justify-center mb-6">
-          <i class="fas fa-gavel text-2xl text-purple-400"></i>
+      <div class="text-center p-10 bg-gradient-to-br from-purple-900/20 to-transparent rounded-3xl border border-purple-800/30 card-hover">
+        <div class="w-20 h-20 mx-auto mb-6 bg-purple-600/20 rounded-2xl flex items-center justify-center">
+          <i class="fas fa-gavel text-3xl text-purple-400"></i>
         </div>
-        <h3 class="text-2xl font-bold text-white mb-3">Independent Judges</h3>
-        <p class="text-gray-400">DAO-ratified. No token holdings allowed</p>
+        <h3 class="text-2xl font-bold mb-4">Independent Judges</h3>
+        <p class="text-gray-400 light:text-gray-600">DAO-ratified · Zero conflicts</p>
       </div>
-      <div class="bg-gradient-to-br from-purple-900/20 to-black p-8 rounded-2xl border border-purple-800/50 card-hover">
-        <div class="w-16 h-16 bg-purple-600/20 rounded-full flex items-center justify-center mb-6">
-          <i class="fas fa-trophy text-2xl text-purple-400"></i>
+      <div class="text-center p-10 bg-gradient-to-br from-purple-900/20 to-transparent rounded-3xl border border-purple-800/30 card-hover">
+        <div class="w-20 h-20 mx-auto mb-6 bg-purple-600/20 rounded-2xl flex items-center justify-center">
+          <i class="fas fa-trophy text-3xl text-purple-400"></i>
         </div>
-        <h3 class="text-2xl font-bold text-white mb-3">NFT Championship Belt</h3>
-        <p class="text-gray-400">Winner gets the digital + optional physical belt</p>
+        <h3 class="text-2xl font-bold mb-4">Championship Belt</h3>
+        <p class="text-gray-400 light:text-gray-600">NFT + optional physical belt</p>
       </div>
     </div>
   </section>
 
   <!-- TREASURY -->
-  <section class="py-24 px-6 bg-gradient-to-b from-black to-purple-900/10">
-    <div class="text-center mb-16">
-      <h2 class="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">Support the Series (Voluntary)</h2>
-      <p class="text-gray-400 mt-4">Help us host bigger events and produce physical belts</p>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-10 max-w-4xl mx-auto">
-      <div class="bg-black/40 backdrop-blur-sm border border-purple-800/50 rounded-2xl p-8 text-center card-hover">
-        <i class="fab fa-ethereum text-6xl text-purple-400 mb-4"></i>
-        <p class="text-sm text-gray-500 uppercase tracking-wider">Ethereum & EVM Chains</p>
-        <code class="block mt-4 text-xs bg-black/60 px-4 py-3 rounded font-mono break-all">0x86a247d4686274625b7d408d281c4515ff5532f9</code>
-        <button onclick="navigator.clipboard.writeText('0x86a247d4686274625b7d408d281c4515ff5532f9');this.innerHTML='Copied!';setTimeout(()=>this.innerHTML='Copy',2000)" class="mt-4 text-purple-400 hover:text-purple-300 text-sm">Copy</button>
+  <section class="py-28 px-6">
+    <h2 class="text-center text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent mb-16">
+      Support the Series (Voluntary)
+    </h2>
+    <div class="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+      <div class="text-center p-10 bg-black/40 light:bg-white/70 backdrop-blur-xl rounded-3xl border border-purple-700/30 card-hover">
+        <i class="fab fa-ethereum text-7xl text-purple-500 mb-6"></i>
+        <p class="text-sm uppercase tracking-widest text-gray-500 light:text-gray-600 mb-3">EVM Chains</p>
+        <code class="block text-xs font-mono bg-black/50 light:bg-gray-100 px-5 py-3 rounded-xl mb-4 break-all">0x86a247d4686274625b7d408d281c4515ff5532f9</code>
+        <button onclick="navigator.clipboard.writeText('0x86a247d4686274625b7d408d281c4515ff5532f9');this.innerHTML='Copied!';setTimeout(()=>this.innerHTML='Copy',2000)" 
+                class="text-purple-400 hover:text-purple-300">Copy</button>
       </div>
-
-      <div class="bg-black/40 backdrop-blur-sm border border-purple-800/50 rounded-2xl p-8 text-center card-hover">
-        <i class="fab fa-bitcoin text-6xl text-orange-500 mb-4"></i>
-        <p class="text-sm text-gray-500 uppercase tracking-wider">Bitcoin</p>
-        <code class="block mt-4 text-xs bg-black/60 px-4 py-3 rounded font-mono break-all">bc1qhzz8x6tak8nl2f6e6dhceyuwsj6tdg924cgjw2</code>
-        <button onclick="navigator.clipboard.writeText('bc1qhzz8x6tak8nl2f6e6dhceyuwsj6tdg924cgjw2');this.innerHTML='Copied!';setTimeout(()=>this.innerHTML='Copy',2000)" class="mt-4 text-purple-400 hover:text-purple-300 text-sm">Copy</button>
+      <div class="text-center p-10 bg-black/40 light:bg-white/70 backdrop-blur-xl rounded-3xl border border-purple-700/30 card-hover">
+        <i class="fab fa-bitcoin text-7xl text-orange-500 mb-6"></i>
+        <p class="text-sm uppercase tracking-widest text-gray-500 light:text-gray-600 mb-3">Bitcoin</p>
+        <code class="block text-xs font-mono bg-black/50 light:bg-gray-100 px-5 py-3 rounded-xl mb-4 break-all">bc1qhzz8x6tak8nl2f6e6dhceyuwsj6tdg924cgjw2</code>
+        <button onclick="navigator.clipboard.writeText('bc1qhzz8x6tak8nl2f6e6dhceyuwsj6tdg924cgjw2');this.innerHTML='Copied!';setTimeout(()=>this.innerHTML='Copy',2000)" 
+                class="text-purple-400 hover:text-purple-300">Copy</button>
       </div>
-
-      <div class="bg-black/40 backdrop-blur-sm border border-purple-800/50 rounded-2xl p-8 text-center card-hover">
-        <i class="fab fa-solana text-6xl text-green-400 mb-4"></i>
-        <p class="text-sm text-gray-500 uppercase tracking-wider">Solana</p>
-        <code class="block mt-4 text-xs bg-black/60 px-4 py-3 rounded font-mono break-all">HXK1mAT99M7enBf2QQjJBpoFcPziRGxmfQxqJhzFzuNe</code>
-        <button onclick="navigator.clipboard.writeText('HXK1mAT99M7enBf2QQjJBpoFcPziRGxmfQxqJhzFzuNe');this.innerHTML='Copied!';setTimeout(()=>this.innerHTML='Copy',2000)" class="mt-4 text-purple-400 hover:text-purple-300 text-sm">Copy</button>
+      <div class="text-center p-10 bg-black/40 light:bg-white/70 backdrop-blur-xl rounded-3xl border border-purple-700/30 card-hover">
+        <i class="fab fa-solana text-7xl text-green-400 mb-6"></i>
+        <p class="text-sm uppercase tracking-widest text-gray-500 light:text-gray-600 mb-3">Solana</p>
+        <code class="block text-xs font-mono bg-black/50 light:bg-gray-100 px-5 py-3 rounded-xl mb-4 break-all">HXK1mAT99M7enBf2QQjJBpoFcPziRGxmfQxqJhzFzuNe</code>
+        <button onclick="navigator.clipboard.writeText('HXK1mAT99M7enBf2QQjJBpoFcPziRGxmfQxqJhzFzuNe');this.innerHTML='Copied!';setTimeout(()=>this.innerHTML='Copy',2000)" 
+                class="text-purple-400 hover:text-purple-300">Copy</button>
       </div>
     </div>
   </section>
 
   <!-- ABOUT ORGANIZER -->
-  <section class="py-24 px-6 bg-black/50">
+  <section class="py-28 px-6 bg-black/30 light:bg-gray-50">
     <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent mb-8">Organized by</h2>
-      <div class="flex flex-col md:flex-row items-center gap-10">
-        <img src="https://pbs.twimg.com/profile_images/1982158382262894593/fEetDFDh_400x400.jpg" alt="Engr. Mikailu" class="w-40 h-40 rounded-full ring-4 ring-purple-600/30"/>
+      <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent mb-12">Organized by</h2>
+      <div class="flex flex-col md:flex-row items-center gap-12">
+        <img src="https://pbs.twimg.com/profile_images/1982158382262894593/fEetDFDh_400x400.jpg" alt="Mikailu" class="w-44 h-44 rounded-full ring-4 ring-purple-600/40"/>
         <div class="text-left">
-          <h3 class="text-3xl font-bold text-white">Engr. Mikailu Samuel Nadro</h3>
-          <p class="text-purple-400 text-lg mt-2">@0xParabolicDAO</p>
-          <p class="text-gray-400 mt-4 leading-relaxed">
-            Blockchain engineer and founder of Parabolic DAO. Passionate about transparent competition, decentralized governance, and building the future of Web3 entertainment.
+          <h3 class="text-3xl font-bold">Engr. Mikailu Samuel Nadro</h3>
+          <p class="text-2xl text-purple-400 mt-2">@0xParabolicDAO</p>
+          <p class="mt-6 text-lg text-gray-400 light:text-gray-700 leading-relaxed max-w-xl">
+            Blockchain engineer and founder of Parabolic DAO. Building transparent, entertaining, and community-driven experiences in Web3 since 2021.
           </p>
-          <a href="https://x.com/0xParabolicDAO" class="inline-block mt-6 text-purple-400 hover:text-purple-300">Follow on X →</a>
+          <a href="https://x.com/0xParabolicDAO" class="inline-block mt-6 text-purple-400 hover:text-purple-300 font-medium">Follow on X →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="py-12 text-center text-gray-500 border-t border-purple-900/30">
+  <footer class="py-10 text-center text-gray-500 text-sm border-t border-purple-900/20">
     © 2025 Parabolic DAO • All fights settled on-chain • <a href="mailto:0xparabolicdao@gmail.com" class="text-purple-400 hover:underline">Contact</a>
   </footer>
 
