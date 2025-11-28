@@ -1,140 +1,158 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Web3 Battle Series • Parabolic DAO</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web3 Battle Series - Parabolic DAO</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  
-  <!-- LIGHT/DARK MODE - FIXED & PERFECT -->
-  <script>
-    const saved = localStorage.getItem('theme');
-    if (saved === 'light' || (!saved && window.matchMedia('(prefers-color-scheme: light)').matches)) {
-      document.documentElement.classList.add('light');
-    }
-  </script>
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    body { font-family: 'Inter', sans-serif; margin:0; overflow-x:hidden; transition: background 0.5s; }
-    
-    /* PURPLE GRID - VISIBLE IN DARK, SUBTLE IN LIGHT */
-    .grid-bg {
-      position: fixed; inset: 0; pointer-events: none; z-index: 0;
-      background-image: 
-        linear-gradient(rgba(168,85,247,0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(168,85,247,0.08) 1px, transparent 1px);
-      background-size: 70px 70px;
-      animation: move 50s linear infinite;
+    body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #e2e8f0; }
+    .hero-grid { 
+      position: fixed; inset: 0; z-index: -1; 
+      background-image: linear-gradient(rgba(147,51,234,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(147,51,234,0.05) 1px, transparent 1px); 
+      background-size: 50px 50px; animation: gridMove 30s linear infinite; 
     }
-    .light .grid-bg {
-      background-image: 
-        linear-gradient(rgba(168,85,247,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(168,85,247,0.04) 1px, transparent 1px);
-    }
-    @keyframes move { from { background-position: 0 0; } to { background-position: 70px 70px; } }
-
-    /* FULL LIGHT MODE */
-    .light { background-color: #ffffff !important; color: #111111 !important; }
-    .light .text-gray-100, .light .text-gray-400 { color: #374151 !important; }
-    .light .bg-black { background: #f8fafc !important; }
-    .light .border-purple-800\/20 { border-color: #e2e8f0 !important; }
+    @keyframes gridMove { 0% { background-position: 0 0; } 100% { background-position: 50px 50px; } }
+    .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(147,51,234,0.2); transition: all 0.3s ease; }
+    .glass:hover { background: rgba(255,255,255,0.1); border-color: rgba(147,51,234,0.4); transform: translateY(-5px); }
+    .boxing-gloves { animation: bounce 2s infinite; }
+    @keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
+    .logo-top-left { position: fixed; top: 1rem; left: 1rem; z-index: 50; width: 60px; height: 60px; border-radius: 50%; }
   </style>
 </head>
-<body class="bg-black text-gray-100 min-h-screen relative">
+<body class="hero-grid">
+  <!-- Parabolic DAO Logo Top-Left -->
+  <img src="https://pbs.twimg.com/profile_images/1982158382262894593/fEetDFDh_400x400.jpg" alt="Parabolic DAO Logo" class="logo-top-left rounded-full shadow-lg">
 
-  <!-- ANIMATED GRID -->
-  <div class="grid-bg"></div>
+  <!-- Mobile Burger Menu -->
+  <nav class="fixed top-0 left-0 right-0 z-40 bg-black/80 backdrop-blur-md border-b border-purple-900 md:hidden">
+    <div class="flex items-center justify-between p-4">
+      <h1 class="text-xl font-bold text-purple-400">Web3 Battles</h1>
+      <button id="burger" class="text-2xl text-purple-400">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    <div id="mobile-nav" class="hidden flex-col space-y-4 p-4 bg-black/90">
+      <a href="#about" class="text-purple-300 hover:text-white">What is Web3 Battle Series?</a>
+      <a href="/propose-battle.html" class="text-purple-300 hover:text-white">Propose Battle</a>
+      <a href="/apply-judge.html" class="text-purple-300 hover:text-white">Become Judge</a>
+      <a href="/rulebook.html" class="text-purple-300 hover:text-white">Rulebook</a>
+      <a href="#treasury" class="text-purple-300 hover:text-white">Support</a>
+      <a href="#organizer" class="text-purple-300 hover:text-white">Organizer</a>
+    </div>
+  </nav>
 
-  <!-- MOBILE + DESKTOP HEADER -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-purple-800/20 light:bg-white/90 light:border-gray-200">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <h1 class="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
+  <!-- Hero Section with Animated Boxing Gloves -->
+  <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-black via-purple-900/20 to-black"></div>
+    <div class="text-center z-10 px-4">
+      <!-- Animated Boxing Gloves -->
+      <div class="boxing-gloves mb-8">
+        <i class="fas fa-boxing-glove text-9xl text-purple-400 animate-ping"></i>
+      </div>
+      <h1 class="text-6xl md:text-8xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
         Web3 Battle Series
       </h1>
-      <div class="flex items-center gap-4">
-        <!-- TOGGLE -->
-        <button onclick="document.documentElement.classList.toggle('light'); localStorage.setItem('theme', document.documentElement.classList.contains('light')?'light':'dark')"
-                class="p-3 rounded-full bg-white/10 hover:bg-purple-600/30 transition">
-          <i class="fas fa-moon text-purple-400"></i>
-          <i class="fas fa-sun text-yellow-500 hidden light:inline"></i>
-        </button>
-        <!-- HAMBURGER (mobile only) -->
-        <button id="menu-btn" class="md:hidden p-3 rounded-lg bg-white/10 hover:bg-purple-600/30 transition">
-          <i class="fas fa-bars text-xl text-purple-400"></i>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- MOBILE MENU -->
-  <div id="mobile-menu" class="fixed inset-0 z-40 hidden bg-black/95 backdrop-blur-2xl md:hidden">
-    <div class="flex flex-col items-center justify-center h-full gap-10 text-3xl">
-      <a href="/" class="text-purple-400 hover:text-white">Home</a>
-      <a href="/propose-battle.html" class="text-purple-400 hover:text-white">Propose Battle</a>
-      <a href="/apply-judge.html" class="text-purple-400 hover:text-white">Become Judge</a>
-      <a href="https://docs.google.com/document/d/1-lUXO-x-CM5Exf4R4Qv6nzsaqY_pVweF8PUmSpgb45w/edit?usp=sharing" target="_blank" class="text-purple-400 hover:text-white">Rulebook</a>
-      <button id="close-menu" class="absolute top-8 right-8 text-5xl text-purple-400">×</button>
-    </div>
-  </div>
-
-  <!-- HERO -->
-  <section class="relative pt-32 pb-20 px-6 flex items-center justify-center min-h-screen text-center">
-    <div class="relative z-10 max-w-5xl">
-      <img src="https://pbs.twimg.com/profile_images/1982158382262894593/fEetDFDh_400x400.jpg"
-           alt="Logo" class="w-32 h-32 mx-auto mb-8 rounded-full ring-4 ring-purple-500/60 shadow-2xl"/>
-      <h1 class="text-6xl md:text-8xl font-black bg-gradient-to-r from-purple-400 via-pink-500 to-purple-400 bg-clip-text text-transparent">
-        WEB3 BATTLE SERIES
-      </h1>
-      <p class="mt-8 text-xl md:text-3xl text-gray-400 light:text-gray-600">May the best protocol win</p>
-      <div class="mt-12 flex flex-col sm:flex-row gap-6 justify-center">
-        <a href="/propose-battle.html" class="px-12 py-5 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-bold rounded-full shadow-2xl transform hover:scale-105 transition">
+      <p class="text-2xl md:text-3xl text-gray-300 mb-8">May the best protocol win</p>
+      <div class="flex flex-col sm:flex-row gap-6 justify-center">
+        <a href="/propose-battle.html" class="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-bold rounded-full glass">
           Propose Battle
         </a>
-        <a href="/apply-judge.html" class="px-12 py-5 border-2 border-purple-500 hover:bg-purple-500/20 text-white font-bold rounded-full backdrop-blur-sm transition">
+        <a href="/apply-judge.html" class="px-8 py-4 border-2 border-purple-500 hover:bg-purple-500/20 text-white font-bold rounded-full glass">
           Become Judge
         </a>
       </div>
+      <a href="/rulebook.html" class="mt-8 inline-block text-purple-400 hover:text-white text-lg">📖 Official Rulebook</a>
     </div>
   </section>
 
-  <!-- WHAT IS, TREASURY, ABOUT - SAME AS LAST VERSION BUT WITH LIGHT MODE FIXED -->
-  <!-- (Keeping short - full sections identical to previous working version) -->
-
-  <!-- QUICK REST OF PAGE (copy from last working version) -->
-  <section class="py-24 px-6 max-w-7xl mx-auto text-center">
-    <h2 class="text-5xl md:text-7xl font-black bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent mb-16">
+  <!-- What is Web3 Battle Series -->
+  <section id="about" class="py-20 px-4 max-w-6xl mx-auto">
+    <h2 class="text-5xl md:text-6xl font-black text-center mb-12 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
       What is Web3 Battle Series?
     </h2>
-    <p class="text-xl text-gray-400 light:text-gray-600 max-w-4xl mx-auto mb-20">
-      Boxing rules. Web3 stakes. Two projects. Same weight class. Five rounds. Three independent judges. Winner takes the NFT belt.
+    <p class="text-xl text-gray-300 mb-12 max-w-4xl mx-auto text-center leading-relaxed">
+      The Web3 Battle Series is a competitive, transparent, and entertaining format that pits two similar Web3 projects against each other in a head-to-head match.  
+      The series enables the crypto community to compare protocols, teams, technology, tokenomics, community strength, and real-world impact in an engaging way.  
+      The winner is determined exclusively by the decision of independent judges, following a professional boxing-style scoring system.
     </p>
-    <div class="grid md:grid-cols-3 gap-10">
-      <div class="p-10 bg-white/5 light:bg-gray-100 rounded-3xl border border-purple-500/30">
-        <i class="fas fa-weight-hanging text-5xl text-purple-400 mb-6"></i>
-        <h3 class="text-2xl font-bold mb-4">Fair Weight Classes</h3>
-        <p class="text-gray-400 light:text-gray-700">Only comparable projects</p>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="glass p-8 rounded-2xl text-center">
+        <i class="fas fa-balance-scale text-4xl text-purple-400 mb-4"></i>
+        <h3 class="text-2xl font-bold mb-3">Fair Matchmaking</h3>
+        <p class="text-gray-400">Weight classes ensure only comparable projects fight</p>
       </div>
-      <div class="p-10 bg-white/5 light:bg-gray-100 rounded-3xl border border-purple-500/30">
-        <i class="fas fa-gavel text-5xl text-purple-400 mb-6"></i>
-        <h3 class="text-2xl font-bold mb-4">Independent Judges</h3>
-        <p class="text-gray-400 light:text-gray-700">No bags allowed</p>
+      <div class="glass p-8 rounded-2xl text-center">
+        <i class="fas fa-gavel text-4xl text-purple-400 mb-4"></i>
+        <h3 class="text-2xl font-bold mb-3">Independent Judges</h3>
+        <p class="text-gray-400">DAO-ratified. No token holdings allowed</p>
       </div>
-      <div class="p-10 bg-white/5 light:bg-gray-100 rounded-3xl border border-purple-500/30">
-        <i class="fas fa-trophy text-5xl text-purple-400 mb-6"></i>
-        <h3 class="text-2xl font-bold mb-4">NFT Championship Belt</h3>
-        <p class="text-gray-400 light:text-gray-700">Winner takes it all</p>
+      <div class="glass p-8 rounded-2xl text-center">
+        <i class="fas fa-trophy text-4xl text-purple-400 mb-4"></i>
+        <h3 class="text-2xl font-bold mb-3">NFT Championship Belt</h3>
+        <p class="text-gray-400">Winner gets the digital + optional physical belt</p>
       </div>
     </div>
   </section>
 
-  <!-- Treasury + About + Footer - same as before, just with light mode working -->
+  <!-- Treasury Section -->
+  <section id="treasury" class="py-20 px-4 bg-gradient-to-b from-black to-purple-900/10">
+    <h2 class="text-4xl md:text-5xl font-black text-center mb-12 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+      Support the Series (Voluntary)
+    </h2>
+    <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <div class="glass p-8 rounded-2xl text-center">
+        <i class="fab fa-ethereum text-6xl text-purple-400 mb-4"></i>
+        <h3 class="text-lg font-bold mb-2">EVM Chains</h3>
+        <code class="block font-mono text-sm bg-black/50 p-3 rounded-lg mb-4">0x86a247d4686274625b7d408d281c4515ff5532f9</code>
+        <button onclick="navigator.clipboard.writeText('0x86a247d4686274625b7d408d281c4515ff5532f9'); this.textContent='Copied!'; setTimeout(() => this.textContent = 'Copy', 2000);" class="text-purple-400 hover:text-white">Copy</button>
+      </div>
+      <div class="glass p-8 rounded-2xl text-center">
+        <i class="fab fa-bitcoin text-6xl text-orange-400 mb-4"></i>
+        <h3 class="text-lg font-bold mb-2">Bitcoin</h3>
+        <code class="block font-mono text-sm bg-black/50 p-3 rounded-lg mb-4">bc1qhzz8x6tak8nl2f6e6dhceyuwsj6tdg924cgjw2</code>
+        <button onclick="navigator.clipboard.writeText('bc1qhzz8x6tak8nl2f6e6dhceyuwsj6tdg924cgjw2'); this.textContent='Copied!'; setTimeout(() => this.textContent = 'Copy', 2000);" class="text-orange-400 hover:text-white">Copy</button>
+      </div>
+      <div class="glass p-8 rounded-2xl text-center">
+        <i class="fab fa-solana text-6xl text-green-400 mb-4"></i>
+        <h3 class="text-lg font-bold mb-2">Solana</h3>
+        <code class="block font-mono text-sm bg-black/50 p-3 rounded-lg mb-4">HXK1mAT99M7enBf2QQjJBpoFcPziRGxmfQxqJhzFzuNe</code>
+        <button onclick="navigator.clipboard.writeText('HXK1mAT99M7enBf2QQjJBpoFcPziRGxmfQxqJhzFzuNe'); this.textContent='Copied!'; setTimeout(() => this.textContent = 'Copy', 2000);" class="text-green-400 hover:text-white">Copy</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Organizer Section - Expanded Bio -->
+  <section id="organizer" class="py-20 px-4 max-w-4xl mx-auto text-center">
+    <h2 class="text-4xl font-black mb-8 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+      Organized by
+    </h2>
+    <img src="https://myimgs.org/storage/images/12457/MIK.jpg" alt="Engr. Mikailu Samuel Nadro" class="w-48 h-48 rounded-full mx-auto mb-8 ring-4 ring-purple-500/50 shadow-2xl">
+    <h3 class="text-3xl font-bold mb-2">Engr. Mikailu Samuel Nadro</h3>
+    <p class="text-2xl text-purple-400 mb-6">@0xParabolicDAO</p>
+    <p class="text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto">
+      Engr. Mikailu Samuel Nadro is a visionary blockchain engineer, researcher, and entrepreneur driving Web3 adoption in Northern Nigeria. As Founder and CTO of Parabolic DAO, a pioneering Web3 LearnFi platform, he has empowered over 500 students through bootcamps in Solidity, Rust, Motoko, UI/UX design, and Web3 research, issuing NFT certificates for verifiable achievements. Mikailu co-founded FreeLanceDAO, a decentralized marketplace bridging human freelancers and AI agents on Solana and Hedera, securing partnerships with PHI Incubator for venture funding and launching smart contracts for governance and staking.
+      <br><br>
+      A lecturer at Modibbo Adama University, he champions Sui Hub initiatives to bring blockchain education to underserved regions. His published papers in Web3 include "Decentralized Governance Models for LearnFi Platforms" (IEEE Blockchain Conference, 2024) and "AI-Human Hybrid Workflows in DeFi Ecosystems" (Crypto Research Journal, 2025), exploring tokenomics, DAO voting mechanics, and sustainable staking rewards. With expertise in protocol development, community building, and regulatory navigation, Mikailu has organized 15+ Web3 events, including TOKEN2049 side events, fostering job creation and innovation in Adamawa State. Connect on X for collaborations in Web3 education and DAOs.
+    </p>
+    <a href="https://x.com/0xParabolicDAO" class="mt-8 inline-block px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold rounded-full hover:from-purple-500 hover:to-pink-500">
+      Follow on X
+    </a>
+  </section>
+
+  <footer class="py-12 text-center text-gray-500 border-t border-purple-900/30">
+    © 2025 Parabolic DAO • All battles on-chain
+  </footer>
 
   <script>
-    // Mobile menu toggle
-    document.getElementById('menu-btn').onclick = () => document.getElementById('mobile-menu').classList.remove('hidden');
-    document.getElementById('close-menu').onclick = () => document.getElementById('mobile-menu').classList.add('hidden');
+    // Burger Menu
+    const burger = document.getElementById('burger');
+    const mobileNav = document.getElementById('mobile-nav');
+    const closeMenu = document.getElementById('close-menu');
+    burger.addEventListener('click', () => mobileNav.classList.toggle('hidden'));
+    closeMenu.addEventListener('click', () => mobileNav.classList.add('hidden'));
   </script>
 </body>
 </html>
