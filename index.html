@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Web3 Battle Series • Parabolic DAO</title>
+  <meta name="description" content="Boxing-style Web3 project battles. Fair. Transparent. Judge-decided." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600;700&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    h1,h2,h3 { font-family: 'Orbitron', sans-serif; }
+  </style>
+</head>
+<body class="bg-black text-white">
+
+  <!-- HERO -->
+  <section class="relative h-screen flex items-center justify-center overflow-hidden">
+    <img src="https://i.ibb.co/REPLACE-WITH-YOUR-FLYER-LINK.jpg" alt="Web3 Battle Series" class="absolute inset-0 w-full h-full object-cover opacity-80"/>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/90"></div>
+    <div class="relative z-10 text-center px-6 max-w-4xl">
+      <img src="https://i.ibb.co/REPLACE-WITH-YOUR-LOGO-LINK.png" alt="Parabolic DAO" class="h-24 mx-auto mb-8"/>
+      <h1 class="text-6xl md:text-8xl font-black text-cyan-400 drop-shadow-2xl">WEB3 BATTLE SERIES</h1>
+      <p class="mt-6 text-2xl md:text-3xl text-cyan-200">May the best protocol win.</p>
+      <div class="mt-12 flex flex-col sm:flex-row gap-6 justify-center">
+        <a href="#register-team" class="bg-cyan-500 hover:bg-cyan-400 text-black font-bold py-4 px-10 rounded-full text-lg transition">Register Project</a>
+        <a href="#become-judge" class="border-2 border-cyan-500 hover:bg-cyan-500/20 font-bold py-4 px-10 rounded-full text-lg transition">Become Judge</a>
+      </div>
+    </div>
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+      <i class="fas fa-chevron-down text-4xl text-cyan-400"></i>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="py-20 px-6 bg-gradient-to-b from-black to-zinc-950">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-5xl md:text-6xl font-black text-cyan-400 mb-10">What is Web3 Battle Series?</h2>
+      <p class="text-xl leading-relaxed text-gray-300 max-w-3xl mx-auto">
+        Boxing-style, judge-decided competitions between similar Web3 projects. No shilling. No price talk. Just data, execution, and three independent judges using the 10-point-must system.
+      </p>
+      <div class="grid md:grid-cols-3 gap-10 mt-16">
+        <div class="bg-zinc-900 p-8 rounded-2xl border border-cyan-900"><i class="fas fa-scale-balanced text-5xl text-cyan-400 mb-4"></i><h3 class="text-2xl font-bold mb-3">Fair Weight Classes</h3><p class="text-gray-400">Only comparable projects fight.</p></div>
+        <div class="bg-zinc-900 p-8 rounded-2xl border border-cyan-900"><i class="fas fa-gavel text-5xl text-cyan-400 mb-4"></i><h3 class="text-2xl font-bold mb-3">Independent Judges</h3><p class="text-gray-400">DAO-ratified. Zero bags allowed.</p></div>
+        <div class="bg-zinc-900 p-8 rounded-2xl border border-cyan-900"><i class="fas fa-trophy text-5xl text-cyan-400 mb-4"></i><h3 class="text-2xl font-bold mb-3">Championship Belt</h3><p class="text-gray-400">Digital NFT + optional physical belt.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGISTER TEAM -->
+  <section id="register-team" class="py-20 px-6 bg-zinc-950">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-5xl font-black text-cyan-400 mb-12">Register Your Project</h2>
+      <a href="YOUR_BATTLE_PROPOSAL_FORM_LINK" target="_blank" class="bg-cyan-500 hover:bg-cyan-400 text-black font-bold py-5 px-16 rounded-full text-xl transition">Submit Battle Proposal</a>
+      <p class="mt-6 text-gray-400">All proposals go to DAO vote</p>
+    </div>
+  </section>
+
+  <!-- BECOME JUDGE -->
+  <section id="become-judge" class="py-20 px-6 bg-black">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-5xl font-black text-cyan-400 mb-12">Become a Judge</h2>
+      <a href="YOUR_JUDGE_APPLICATION_LINK" target="_blank" class="bg-cyan-500 hover:bg-cyan-400 text-black font-bold py-5 px-16 rounded-full text-xl transition">Apply Now</a>
+    </div>
+  </section>
+
+  <!-- TREASURY -->
+  <section class="py-20 px-6 bg-gradient-to-t from-black to-zinc-950">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-5xl font-black text-cyan-400 text-center mb-12">Support the Series (Voluntary)</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-zinc-900 p-8 rounded-3xl border border-cyan-900 text-center">
+          <p class="text-4xl mb-4">Ethereum</p>
+          <code class="block bg-black px-4 py-3 rounded text-cyan-400 font-mono text-sm break-all">0x86a247d4686274625b7d408d281c4515ff5532f9</code>
+          <button onclick="navigator.clipboard.writeText('0x86a247d4686274625b7d408d281c4515ff5532f9');this.innerHTML='Copied!'" class="mt-3 text-cyan-400 text-sm">Copy</button>
+        </div>
+        <div class="bg-zinc-900 p-8 rounded-3xl border border-cyan-900 text-center">
+          <p class="text-4xl mb-4">Bitcoin</p>
+          <code class="block bg-black px-4 py-3 rounded text-cyan-400 font-mono text-sm break-all">bc1qhzz8x6tak8nl2f6e6dhceyuwsj6tdg924cgjw2</code>
+          <button onclick="navigator.clipboard.writeText('bc1qhzz8x6tak8nl2f6e6dhceyuwsj6tdg924cgjw2');this.innerHTML='Copied!'" class="mt-3 text-cyan-400 text-sm">Copy</button>
+        </div>
+        <div class="bg-zinc-900 p-8 rounded-3xl border border-cyan-900 text-center">
+          <p class="text-4xl mb-4">Solana</p>
+          <code class="block bg-black px-4 py-3 rounded text-cyan-400 font-mono text-sm break-all">HXK1mAT99M7enBf2QQjJBpoFcPziRGxmfQxqJhzFzuNe</code>
+          <button onclick="navigator.clipboard.writeText('HXK1mAT99M7enBf2QQjJBpoFcPziRGxmfQxqJhzFzuNe');this.innerHTML='Copied!'" class="mt-3 text-cyan-400 text-sm">Copy</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="py-20 px-6 bg-black text-center">
+    <h2 class="text-5xl font-black text-cyan-400 mb-8">Partnerships & Sponsorships</h2>
+    <a href="mailto:0xparabolicdao@gmail.com" class="text-3xl text-cyan-400 hover:text-white">0xparabolicdao@gmail.com</a>
+    <div class="mt-8 text-4xl">
+      <a href="https://x.com/0xParabolicDAO" class="mx-4 text-cyan-400 hover:text-white">X</a>
+    </div>
+  </section>
+
+  <footer class="py-12 bg-zinc-950 text-center text-gray-500">
+    © 2025 Parabolic DAO • Organized by Engr. Mikailu Nadro (@0xParabolicDAO)
+  </footer>
+
+</body>
+</html>
