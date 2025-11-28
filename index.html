@@ -1,66 +1,147 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Web3 Battle Series • Parabolic DAO</title>
-  <meta name="description" content="Black vs Purple. May the best protocol win." />
+  <meta name="description" content="Fair. Transparent. Judge-decided Web3 project battles." />
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@500;700&display=swap');
-    body { font-family: 'Rajdhani', sans-serif; background: #000; }
-    h1,h2 { font-family: 'Orbitron', sans-serif; }
-    .neon-purple { color: #D946EF; text-shadow: 0 0 10px #D946EF, 0 0 20px #D946EF, 0 0 40px #D946EF; }
-    .neon-glow { box-shadow: 0 0 20px rgba(217,70,239,0.5); transition: all 0.4s; }
-    .neon-glow:hover { box-shadow: 0 0 40px rgba(217,70,239,0.8); transform: translateY(-5px); }
-    .bg-grid { background-image: linear-gradient(rgba(217,70,239,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(217,70,239,0.08) 1px, transparent 1px); background-size: 50px 50px; animation: float 25s infinite linear; }
-    @keyframes float { 0% { background-position: 0 0; } 100% { background-position: 50px 50px; } }
+    body { font-family: 'Inter', sans-serif; background: #000; color: #e2e8f0; }
+    .gradient-border { 
+      background: linear-gradient(90deg, transparent, #9333ea 50%, transparent); 
+      padding: 1px; border-radius: 1rem; 
+    }
+    .card-hover { transition: all 0.4s ease; }
+    .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(147,51,234,0.15); }
+    .fade-edge { 
+      position: relative; 
+      overflow: hidden; 
+    }
+    .fade-edge::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 100px;
+      background: linear-gradient(to bottom, #000 0%, transparent 100%);
+      z-index: 10;
+    }
+    .fade-edge::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 150px;
+      background: linear-gradient(to top, #000 0%, transparent 100%);
+      z-index: 10;
+    }
   </style>
 </head>
-<body class="bg-black text-white bg-grid min-h-screen">
+<body class="bg-black text-gray-100 min-h-screen">
 
   <!-- HERO -->
-  <section class="relative h-screen flex items-center justify-center overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-purple-900/40 via-black to-black"></div>
-    <div class="relative z-10 text-center px-6">
-      <img src="https://pbs.twimg.com/profile_images/1982158382262894593/fEetDFDh_400x400.jpg" alt="Parabolic DAO" class="h-32 mx-auto mb-8 rounded-full ring-4 ring-purple-600 neon-glow"/>
-      <h1 class="text-6xl md:text-8xl font-black neon-purple mb-4">WEB3 BATTLE SERIES</h1>
-      <p class="text-2xl md:text-4xl text-purple-300 mb-12">Black vs Purple. No mercy.</p>
-      <div class="flex flex-col sm:flex-row gap-6 justify-center">
-        <a href="/propose-battle.html" class="bg-purple-600 hover:bg-purple-500 text-white font-bold py-5 px-12 rounded-full text-xl neon-glow">Propose Battle</a>
-        <a href="/apply-judge.html" class="border-4 border-purple-600 hover:bg-purple-600/20 font-bold py-5 px-12 rounded-full text-xl neon-glow">Become Judge</a>
+  <section class="relative h-screen flex items-center justify-center fade-edge">
+    <div class="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-black to-black"></div>
+    <div class="relative z-20 text-center px-6 max-w-5xl">
+      <img src="https://pbs.twimg.com/profile_images/1982158382262894593/fEetDFDh_400x400.jpg" 
+           alt="Parabolic DAO" class="w-32 h-32 mx-auto mb-8 rounded-full ring-4 ring-purple-600/50 shadow-2xl"/>
+      <h1 class="text-6xl md:text-8xl font-black tracking-tighter bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
+        WEB3 BATTLE SERIES
+      </h1>
+      <p class="mt-6 text-xl md:text-2xl text-gray-400 font-light">Fair. Transparent. Judge-decided.</p>
+      <div class="mt-12 flex flex-col sm:flex-row gap-6 justify-center">
+        <a href="/propose-battle.html" class="px-10 py-4 bg-purple-600 hover:bg-purple-500 text-white font-semibold rounded-full transition shadow-lg">Propose Battle</a>
+        <a href="/apply-judge.html" class="px-10 py-4 border border-purple-600 hover:bg-purple-600/10 text-white font-semibold rounded-full transition">Become a Judge</a>
       </div>
       <div class="mt-10">
-        <a href="https://docs.google.com/document/d/1-lUXO-x-CM5Exf4R4Qv6nzsaqY_pVweF8PUmSpgb45w/edit?usp=sharing" target="_blank" class="text-purple-400 hover:underline text-lg">Official Rulebook</a>
+        <a href="https://docs.google.com/document/d/1-lUXO-x-CM5Exf4R4Qv6nzsaqY_pVweF8PUmSpgb45w/edit?usp=sharing" 
+           target="_blank" class="text-purple-400 hover:text-purple-300 text-sm tracking-wider">OFFICIAL RULEBOOK →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IS -->
+  <section class="py-24 px-6 max-w-6xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-5xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">What is Web3 Battle Series?</h2>
+      <p class="mt-6 text-xl text-gray-400 max-w-3xl mx-auto">
+        A boxing-style competition that puts two comparable Web3 projects head-to-head.<br>
+        No price talk. No KOLs. Just data, execution, and three independent judges using the 10-point must system.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-10 mt-20">
+      <div class="bg-gradient-to-br from-purple-900/20 to-black p-8 rounded-2xl border border-purple-800/50 card-hover">
+        <div class="w-16 h-16 bg-purple-600/20 rounded-full flex items-center justify-center mb-6">
+          <i class="fas fa-weight-hanging text-2xl text-purple-400"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-3">Fair Weight Classes</h3>
+        <p class="text-gray-400">Only projects of similar size and maturity compete</p>
+      </div>
+      <div class="bg-gradient-to-br from-purple-900/20 to-black p-8 rounded-2xl border border-purple-800/50 card-hover">
+        <div class="w-16 h-16 bg-purple-600/20 rounded-full flex items-center justify-center mb-6">
+          <i class="fas fa-gavel text-2xl text-purple-400"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-3">Independent Judges</h3>
+        <p class="text-gray-400">DAO-ratified. No token holdings allowed</p>
+      </div>
+      <div class="bg-gradient-to-br from-purple-900/20 to-black p-8 rounded-2xl border border-purple-800/50 card-hover">
+        <div class="w-16 h-16 bg-purple-600/20 rounded-full flex items-center justify-center mb-6">
+          <i class="fas fa-trophy text-2xl text-purple-400"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-3">NFT Championship Belt</h3>
+        <p class="text-gray-400">Winner gets the digital + optional physical belt</p>
       </div>
     </div>
   </section>
 
   <!-- TREASURY -->
-  <section class="py-20 px-6 text-center">
-    <h2 class="text-4xl neon-purple mb-10">Support the Series (Voluntary)</h2>
-    <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-      <div class="bg-purple-900/20 p-6 rounded-xl border border-purple-800 neon-glow">
-        <p class="text-2xl mb-2">EVM</p>
-        <code class="block bg-black/70 px-4 py-2 rounded text-sm break-all">0x86a247d4686274625b7d408d281c4515ff5532f9</code>
-        <button onclick="navigator.clipboard.writeText('0x86a247d4686274625b7d408d281c4515ff5532f9');this.innerHTML='Copied!';setTimeout(()=>this.innerHTML='Copy',2000)" class="mt-3 text-purple-400 text-sm">Copy</button>
+  <section class="py-24 px-6 bg-gradient-to-b from-black to-purple-900/10">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">Support the Series (Voluntary)</h2>
+      <p class="text-gray-400 mt-4">Help us host bigger events and produce physical belts</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-10 max-w-4xl mx-auto">
+      <div class="bg-black/40 backdrop-blur-sm border border-purple-800/50 rounded-2xl p-8 text-center card-hover">
+        <i class="fab fa-ethereum text-6xl text-purple-400 mb-4"></i>
+        <p class="text-sm text-gray-500 uppercase tracking-wider">Ethereum & EVM Chains</p>
+        <code class="block mt-4 text-xs bg-black/60 px-4 py-3 rounded font-mono break-all">0x86a247d4686274625b7d408d281c4515ff5532f9</code>
+        <button onclick="navigator.clipboard.writeText('0x86a247d4686274625b7d408d281c4515ff5532f9');this.innerHTML='Copied!';setTimeout(()=>this.innerHTML='Copy',2000)" class="mt-4 text-purple-400 hover:text-purple-300 text-sm">Copy</button>
       </div>
-      <div class="bg-purple-900/20 p-6 rounded-xl border border-purple-800 neon-glow">
-        <p class="text-2xl mb-2">BTC</p>
-        <code class="block bg-black/70 px-4 py-2 rounded text-sm break-all">bc1qhzz8x6tak8nl2f6e6dhceyuwsj6tdg924cgjw2</code>
-        <button onclick="navigator.clipboard.writeText('bc1qhzz8x6tak8nl2f6e6dhceyuwsj6tdg924cgjw2');this.innerHTML='Copied!';setTimeout(()=>this.innerHTML='Copy',2000)" class="mt-3 text-purple-400 text-sm">Copy</button>
+
+      <div class="bg-black/40 backdrop-blur-sm border border-purple-800/50 rounded-2xl p-8 text-center card-hover">
+        <i class="fab fa-bitcoin text-6xl text-orange-500 mb-4"></i>
+        <p class="text-sm text-gray-500 uppercase tracking-wider">Bitcoin</p>
+        <code class="block mt-4 text-xs bg-black/60 px-4 py-3 rounded font-mono break-all">bc1qhzz8x6tak8nl2f6e6dhceyuwsj6tdg924cgjw2</code>
+        <button onclick="navigator.clipboard.writeText('bc1qhzz8x6tak8nl2f6e6dhceyuwsj6tdg924cgjw2');this.innerHTML='Copied!';setTimeout(()=>this.innerHTML='Copy',2000)" class="mt-4 text-purple-400 hover:text-purple-300 text-sm">Copy</button>
       </div>
-      <div class="bg-purple-900/20 p-6 rounded-xl border border-purple-800 neon-glow">
-        <p class="text-2xl mb-2">SOL</p>
-        <code class="block bg-black/70 px-4 py-2 rounded text-sm break-all">HXK1mAT99M7enBf2QQjJBpoFcPziRGxmfQxqJhzFzuNe</code>
-        <button onclick="navigator.clipboard.writeText('HXK1mAT99M7enBf2QQjJBpoFcPziRGxmfQxqJhzFzuNe');this.innerHTML='Copied!';setTimeout(()=>this.innerHTML='Copy',2000)" class="mt-3 text-purple-400 text-sm">Copy</button>
+
+      <div class="bg-black/40 backdrop-blur-sm border border-purple-800/50 rounded-2xl p-8 text-center card-hover">
+        <i class="fab fa-solana text-6xl text-green-400 mb-4"></i>
+        <p class="text-sm text-gray-500 uppercase tracking-wider">Solana</p>
+        <code class="block mt-4 text-xs bg-black/60 px-4 py-3 rounded font-mono break-all">HXK1mAT99M7enBf2QQjJBpoFcPziRGxmfQxqJhzFzuNe</code>
+        <button onclick="navigator.clipboard.writeText('HXK1mAT99M7enBf2QQjJBpoFcPziRGxmfQxqJhzFzuNe');this.innerHTML='Copied!';setTimeout(()=>this.innerHTML='Copy',2000)" class="mt-4 text-purple-400 hover:text-purple-300 text-sm">Copy</button>
       </div>
     </div>
   </section>
 
-  <footer class="py-12 text-center text-purple-400 border-t border-purple-900">
-    © 2025 Parabolic DAO • Organized by Engr. Mikailu Samuel Nadro • <a href="https://x.com/0xParabolicDAO" class="hover:underline">@0xParabolicDAO</a>
+  <!-- ABOUT ORGANIZER -->
+  <section class="py-24 px-6 bg-black/50">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent mb-8">Organized by</h2>
+      <div class="flex flex-col md:flex-row items-center gap-10">
+        <img src="https://pbs.twimg.com/profile_images/1982158382262894593/fEetDFDh_400x400.jpg" alt="Engr. Mikailu" class="w-40 h-40 rounded-full ring-4 ring-purple-600/30"/>
+        <div class="text-left">
+          <h3 class="text-3xl font-bold text-white">Engr. Mikailu Samuel Nadro</h3>
+          <p class="text-purple-400 text-lg mt-2">@0xParabolicDAO</p>
+          <p class="text-gray-400 mt-4 leading-relaxed">
+            Blockchain engineer and founder of Parabolic DAO. Passionate about transparent competition, decentralized governance, and building the future of Web3 entertainment.
+          </p>
+          <a href="https://x.com/0xParabolicDAO" class="inline-block mt-6 text-purple-400 hover:text-purple-300">Follow on X →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-12 text-center text-gray-500 border-t border-purple-900/30">
+    © 2025 Parabolic DAO • All fights settled on-chain • <a href="mailto:0xparabolicdao@gmail.com" class="text-purple-400 hover:underline">Contact</a>
   </footer>
+
 </body>
 </html>
