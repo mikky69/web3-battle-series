@@ -4,21 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Web3 Battle Series • Parabolic DAO</title>
-  <meta name="description" content="Judge-decided Web3 showdowns. No shilling. Only facts." />
+  <meta name="description" content="Fair. Transparent. Judge-decided Web3 battles." />
   
-  <!-- FAVICON - Your Parabolic DAO logo in every tab -->
+  <!-- FAVICON - Parabolic DAO logo in browser tab -->
   <link rel="icon" href="https://pbs.twimg.com/profile_images/1982158382262894593/fEetDFDh_400x400.jpg" type="image/jpg">
   <link rel="apple-touch-icon" href="https://pbs.twimg.com/profile_images/1982158382262894593/fEetDFDh_400x400.jpg">
 
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
     body { font-family: 'Inter', sans-serif; background: #000; color: #e2e8f0; margin:0; overflow-x:hidden; }
-    h1, h2 { font-family: 'Orbitron', sans-serif; }
-
-    /* LIQUID CRYSTAL GRID */
+    
+    /* LIQUID CRYSTAL GRID - mild & elegant */
     .crystal-grid {
       position: fixed; inset: 0; z-index: 0; pointer-events: none;
       background-image: 
@@ -39,24 +38,23 @@
     }
     .glass:hover { transform: translateY(-10px); border-color: rgba(168,85,247,0.6); }
 
-    /* THUNDER BOLT EFFECT AROUND TITLE */
-    .thunder-text {
-      position: relative; display: inline-block;
-      animation: thunder 6s infinite;
+    /* SUBTLE TITLE GLOW - no abnormal light, just elegant hover pulse */
+    .title-glow {
+      transition: text-shadow 0.3s ease;
     }
-    .thunder-text::before {
-      content: ''; position: absolute; inset: -20px; pointer-events: none;
-      background: radial-gradient(circle, rgba(168,85,247,0.4) 0%, transparent 70%);
-      animation: bolt 3s infinite;
-      opacity: 0;
+    .title-glow:hover {
+      text-shadow: 0 0 20px rgba(168,85,247,0.6), 0 0 40px rgba(236,72,153,0.4);
     }
-    @keyframes thunder { 0%,100% { text-shadow: 0 0 20px #a855f7; } 50% { text-shadow: 0 0 60px #a855f7, 0 0 100px #ec4899; } }
-    @keyframes bolt { 0%,100% { opacity: 0; } 10%,12%,50%,52% { opacity: 0.6; transform: scale(1.1); } }
+
+    /* BURGER MENU - STILL, NO MOVEMENT */
+    #burger { transition: none !important; }
+    #mobile-menu { transition: opacity 0.3s ease; }
+    #mobile-menu.hidden { opacity: 0; pointer-events: none; }
   </style>
 </head>
 <body class="relative">
 
-  <!-- CRYSTAL GRID -->
+  <!-- LIQUID CRYSTAL GRID -->
   <div class="crystal-grid"></div>
 
   <!-- HEADER WITH LOGO + NAV + BURGER -->
@@ -77,14 +75,14 @@
         <a href="https://docs.google.com/document/d/1-lUXO-x-CM5Exf4R4Qv6nzsaqY_pVweF8PUmSpgb45w/edit?usp=sharing" target="_blank" class="hover:text-purple-400 transition">Rulebook</a>
       </nav>
 
-      <!-- Mobile Burger -->
+      <!-- Mobile Burger - STILL, NO ANIMATION -->
       <button id="burger" class="md:hidden text-3xl text-purple-400">
         <i class="fas fa-bars"></i>
       </button>
     </div>
   </header>
 
-  <!-- MOBILE MENU -->
+  <!-- MOBILE MENU - STILL, SMOOTH FADE ONLY -->
   <div id="mobile-menu" class="fixed inset-0 z-40 hidden bg-black/95 backdrop-blur-2xl flex items-center justify-center">
     <div class="text-center space-y-10 text-3xl">
       <a href="#" class="block text-purple-400 hover:text-white">Home</a>
@@ -100,10 +98,10 @@
   <!-- HERO -->
   <section class="relative min-h-screen flex items-center justify-center px-6 text-center pt-20">
     <div class="relative z-10">
-      <h1 class="thunder-text text-6xl sm:text-8xl md:text-9xl font-black bg-gradient-to-r from-purple-400 via-pink-500 to-purple-400 bg-clip-text text-transparent leading-tight">
+      <h1 class="title-glow text-5xl sm:text-7xl md:text-8xl font-black bg-gradient-to-r from-purple-400 via-pink-500 to-purple-400 bg-clip-text text-transparent leading-tight">
         WEB3 BATTLE SERIES
       </h1>
-      <p class="mt-8 text-2xl md:text-4xl text-gray-300 font-light">May the best protocol win</p>
+      <p class="mt-8 text-xl md:text-3xl text-gray-300 font-light">May the best protocol win</p>
       
       <div class="mt-12 flex flex-col sm:flex-row gap-6 justify-center">
         <a href="/propose-battle.html" class="px-12 py-5 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-bold rounded-full text-xl shadow-2xl transform hover:scale-105 transition glass">
@@ -125,8 +123,8 @@
       What is Web3 Battle Series?
     </h2>
     <p class="text-xl md:text-2xl text-gray-400 max-w-4xl mx-auto leading-relaxed mb-20">
-      Boxing rules. Web3 stakes. Two projects. Same weight class. Five rounds.<br>
-      Three independent judges. 10-point must system. Winner takes the NFT belt.
+      A boxing-inspired, judge-decided tournament that pits two similar Web3 projects against each other.<br>
+      No price pumping. No shilling. Just facts, data, and three independent judges using the professional 10-point must system.
     </p>
 
     <div class="grid md:grid-cols-3 gap-10">
@@ -138,12 +136,12 @@
       <div class="glass p-10 rounded-3xl text-center">
         <i class="fas fa-gavel text-6xl text-purple-400 mb-6"></i>
         <h3 class="text-2xl font-bold mb-4">Independent Judges</h3>
-        <p class="text-gray-400">DAO-ratified · No bags allowed</p>
+        <p class="text-gray-400">DAO-ratified · Zero conflicts</p>
       </div>
       <div class="glass p-10 rounded-3xl text-center">
         <i class="fas fa-trophy text-6xl text-purple-400 mb-6"></i>
-        <h3 class="text-2xl font-bold mb-4">NFT Championship Belt</h3>
-        <p class="text-gray-400">Digital + optional physical</p>
+        <h3 class="text-2xl font-bold mb-4">Championship Belt</h3>
+        <p class="text-gray-400">NFT + optional physical belt</p>
       </div>
     </div>
   </section>
@@ -156,7 +154,7 @@
     <div class="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
       <div class="glass p-10 rounded-3xl text-center">
         <i class="fab fa-ethereum text-8xl text-purple-400 mb-6"></i>
-        <p class="text-sm uppercase tracking-widest text-gray-500 mb-4">EVM</p>
+        <p class="text-sm uppercase tracking-widest text-gray-500 mb-4">EVM Chains</p>
         <code class="block font-mono text-xs bg-black/60 px-6 py-4 rounded-2xl mb-5 break-all">0x86a247d4686274625b7d408d281c4515ff5532f9</code>
         <button onclick="navigator.clipboard.writeText('0x86a247d4686274625b7d408d281c4515ff5532f9');this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',2000)" class="text-purple-400 hover:text-white">Copy</button>
       </div>
@@ -184,7 +182,7 @@
     <h3 class="text-4xl font-bold">Engr. Mikailu Samuel Nadro</h3>
     <p class="text-2xl text-purple-400 mt-2 mb-8">@0xParabolicDAO</p>
     <p class="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
-      Blockchain engineer, researcher, and founder of Parabolic DAO — building transparent, high-stakes entertainment in Web3.
+      Blockchain engineer, researcher, and founder of Parabolic DAO, building transparent, high-stakes entertainment in Web3.
     </p>
   </section>
 
@@ -192,19 +190,28 @@
   <footer class="py-12 border-t border-purple-900/40 text-center text-gray-400">
     <div class="flex flex-col sm:flex-row items-center justify-center gap-6 text-lg">
       <span>© 2025 Parabolic DAO</span>
-      <a href="https://x.com/0xParabolicDAO" target="_blank" class="hover:text-purple-400 transition">
+      <a href="https://x.com/0xParabolicDAO" target="_blank" class="flex items-center gap-2 hover:text-purple-400 transition">
         <i class="fab fa-x-twitter text-2xl"></i> Follow on X
       </a>
-      <a href="mailto:0xparabolicdao@gmail.com" class="hover:text-purple-400 transition">
+      <a href="mailto:0xparabolicdao@gmail.com" class="flex items-center gap-2 hover:text-purple-400 transition">
         <i class="fas fa-envelope text-2xl"></i> Contact
       </a>
     </div>
   </footer>
 
   <script>
-    // Mobile menu
-    document.getElementById('burger').onclick = () => document.getElementById('mobile-menu').classList.remove('hidden');
-    document.getElementById('close-menu').onclick = () => document.getElementById('mobile-menu').classList.add('hidden');
+    // Mobile menu - STILL, no movement, smooth fade only
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMenu = document.getElementById('close-menu');
+
+    burger.onclick = () => mobileMenu.classList.remove('hidden');
+    closeMenu.onclick = () => mobileMenu.classList.add('hidden');
+
+    // Close menu on link click (mobile)
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.onclick = () => mobileMenu.classList.add('hidden');
+    });
   </script>
 </body>
 </html>
