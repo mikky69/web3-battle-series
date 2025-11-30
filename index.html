@@ -34,13 +34,23 @@
   <div class="bg-gradient"></div>
   <div class="crystal-grid"></div>
 
-  <!-- HEADER -->
+  <!-- HEADER WITH FULL MENU ON DESKTOP -->
   <header class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-xl border-b border-purple-900/50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <div class="flex items-center gap-4">
-        <img src="https://pbs.twimg.com/profile_images/1982158382262894593/fEetDFDh_400x400.jpg" alt="Parabolic DAO" class="w-12 h-12 rounded-full ring-2 ring-purple-500">
-        <span class="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent hidden sm:block">Web3 Battle Series</span>
+    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+      <div class="flex items-center gap-5">
+        <img src="https://pbs.twimg.com/profile_images/1982158382262894593/fEetDFDh_400x400.jpg" alt="Parabolic DAO" class="w-14 h-14 rounded-full ring-4 ring-purple-600/60">
+        <span class="text-2xl font-black bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">Web3 Battle Series</span>
       </div>
+
+      <!-- DESKTOP NAV -->
+      <nav class="hidden md:flex items-center gap-10 text-lg font-medium">
+        <a href="/" class="text-white hover:text-purple-400 transition">Home</a>
+        <a href="/propose-battle.html" class="text-white hover:text-purple-400 transition">Propose Battle</a>
+        <a href="/apply-judge.html" class="text-white hover:text-purple-400 transition">Become Judge</a>
+        <a href="https://docs.google.com/document/d/1-lUXO-x-CM5Exf4R4Qv6nzsaqY_pVweF8PUmSpgb45w/edit?usp=sharing" target="_blank" class="text-purple-400 hover:text-purple-300 transition font-bold">Rulebook</a>
+      </nav>
+
+      <!-- MOBILE BURGER -->
       <button id="burger" class="text-3xl text-purple-400 md:hidden"><i class="fas fa-bars"></i></button>
     </div>
   </header>
@@ -74,21 +84,21 @@
   </section>
 
   <!-- WHAT IS -->
-  <section id="about" class="py-32 px-6 max-w-7xl mx-auto text-center">
+  <section class="py-32 px-6 max-w-7xl mx-auto text-center">
     <h2 class="text-5xl md:text-7xl font-black bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent mb-16">What is Web3 Battle Series?</h2>
     <p class="text-xl md:text-2xl text-gray-400 max-w-4xl mx-auto mb-20 leading-relaxed">
       A boxing-inspired, judge-decided tournament that pits two similar Web3 projects against each other.<br>
       No price pumping. No shilling. Just facts, data, and three independent judges using the professional 10-point must system.
     </p>
     <div class="grid md:grid-cols-3 gap-10">
-      <div class="glass p-10 rounded-3xl text-center"><i class="fas fa-weight-hanging text-6xl text-purple-400 mb-6"></i><h3 class="text-2xl font-bold mb-4">Fair Weight Classes</h3><p class="text-gray-400">Only comparable projects fight</p></div>
+      <div class="glass p-10 rounded-3xl text-center"><i class="fas fa-weight-hanging text-6xl text-purple-400 mb-400 mb-6"></i><h3 class="text-2xl font-bold mb-4">Fair Weight Classes</h3><p class="text-gray-400">Only comparable projects fight</p></div>
       <div class="glass p-10 rounded-3xl text-center"><i class="fas fa-gavel text-6xl text-purple-400 mb-6"></i><h3 class="text-2xl font-bold mb-4">Independent Judges</h3><p class="text-gray-400">DAO-ratified · Zero conflicts</p></div>
       <div class="glass p-10 rounded-3xl text-center"><i class="fas fa-trophy text-6xl text-purple-400 mb-6"></i><h3 class="text-2xl font-bold mb-4">Championship Belt</h3><p class="text-gray-400">NFT + optional physical belt</p></div>
     </div>
   </section>
 
   <!-- SUPPORT -->
-  <section id="support" class="py-32 px-6">
+  <section class="py-32 px-6">
     <h2 class="text-center text-5xl font-black bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent mb-16">Support the Series (Voluntary)</h2>
     <div class="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
       <div class="glass p-10 rounded-3xl text-center"><i class="fab fa-ethereum text-8xl text-purple-400 mb-6"></i><p class="text-sm uppercase text-gray-500 mb-4">EVM</p><code class="block font-mono text-xs bg-black/60 px-6 py-4 rounded-2xl mb-5 break-all">0x86a247d4686274625b7d408d281c4515ff5532f9</code><button onclick="navigator.clipboard.writeText('0x86a247d4686274625b7d408d281c4515ff5532f9');this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',2000)" class="text-purple-400 hover:text-white">Copy</button></div>
@@ -97,8 +107,8 @@
     </div>
   </section>
 
-    <!-- SPONSORS SECTION - PERFECT INFINITE LOOP WITH 5 LOGOS -->
- <section class="py-32 px-6 overflow-hidden bg-black/30">
+  <!-- SPONSORS & PARTNERS — BIGGER LOGOS WITH PURPLE RING -->
+  <section class="py-32 px-6 overflow-hidden bg-black/30">
     <h2 class="text-center text-5xl font-black bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent mb-16">
       Sponsors & Partners
     </h2>
@@ -106,58 +116,38 @@
       <div class="flex animate-scroll gap-32 items-center">
         <!-- CNC DAO -->
         <a href="https://x.com/CNCDDAO" target="_blank" class="flex-shrink-0">
-          <img src="https://myimgs.org/storage/images/12524/cnc.jpeg" alt="CNC DAO" class="h-20 opacity-80 hover:opacity-100 transition">
+          <img src="https://myimgs.org/storage/images/12524/cnc.jpeg" alt="CNC DAO" class="h-32 w-32 object-contain rounded-full ring-4 ring-purple-500/60 shadow-2xl opacity-90 hover:opacity-100 transition">
         </a>
         <!-- Parabolic DAO -->
         <a href="https://x.com/0xParabolicDAO" target="_blank" class="flex-shrink-0">
-          <img src="https://pbs.twimg.com/profile_images/1982158382262894593/fEetDFDh_400x400.jpg" alt="Parabolic DAO" class="h-20 rounded-full opacity-80 hover:opacity-100 transition">
+          <img src="https://pbs.twimg.com/profile_images/1982158382262894593/fEetDFDh_400x400.jpg" alt="Parabolic DAO" class="h-32 w-32 rounded-full ring-4 ring-purple-500/60 shadow-2xl opacity-90 hover:opacity-100 transition">
         </a>
         <!-- Voice of Web3 -->
         <a href="https://x.com/dvoiceofweb3" target="_blank" class="flex-shrink-0">
-          <img src="https://myimgs.org/storage/images/12525/voice of web3.jpg" alt="Voice of Web3" class="h-20 opacity-80 hover:opacity-100 transition">
+          <img src="https://myimgs.org/storage/images/12525/voice of web3.jpg" alt="Voice of Web3" class="h-32 w-32 object-contain rounded-full ring-4 ring-purple-500/60 shadow-2xl opacity-90 hover:opacity-100 transition">
         </a>
         <!-- Novare Africa -->
         <a href="https://x.com/NovareAfrica" target="_blank" class="flex-shrink-0">
-          <img src="https://myimgs.org/storage/images/12528/novare.png" alt="Novare Africa" class="h-20 opacity-80 hover:opacity-100 transition">
+          <img src="https://myimgs.org/storage/images/12528/novare.png" alt="Novare Africa" class="h-32 w-32 object-contain rounded-full ring-4 ring-purple-500/60 shadow-2xl opacity-90 hover:opacity-100 transition">
         </a>
         <!-- Crypto Loop -->
         <a href="https://x.com/CryptoLoopHQ" target="_blank" class="flex-shrink-0">
-          <img src="https://myimgs.org/storage/images/12529/crypto loop.png" alt="Crypto Loop" class="h-20 opacity-80 hover:opacity-100 transition">
+          <img src="https://myimgs.org/storage/images/12529/crypto loop.png" alt="Crypto Loop" class="h-32 w-32 object-contain rounded-full ring-4 ring-purple-500/60 shadow-2xl opacity-90 hover:opacity-100 transition">
         </a>
 
-        <!-- REPEATED SET 1 -->
-        <a href="https://x.com/CNCDDAO" target="_blank" class="flex-shrink-0">
-          <img src="https://myimgs.org/storage/images/12524/cnc.jpeg" alt="CNC DAO" class="h-20 opacity-80 hover:opacity-100 transition">
-        </a>
-        <a href="https://x.com/0xParabolicDAO" target="_blank" class="flex-shrink-0">
-          <img src="https://pbs.twimg.com/profile_images/1982158382262894593/fEetDFDh_400x400.jpg" alt="Parabolic DAO" class="h-20 rounded-full opacity-80 hover:opacity-100 transition">
-        </a>
-        <a href="https://x.com/dvoiceofweb3" target="_blank" class="flex-shrink-0">
-          <img src="https://myimgs.org/storage/images/12525/voice of web3.jpg" alt="Voice of Web3" class="h-20 opacity-80 hover:opacity-100 transition">
-        </a>
-        <a href="https://x.com/NovareAfrica" target="_blank" class="flex-shrink-0">
-          <img src="https://myimgs.org/storage/images/12528/novare.png" alt="Novare Africa" class="h-20 opacity-80 hover:opacity-100 transition">
-        </a>
-        <a href="https://x.com/CryptoLoopHQ" target="_blank" class="flex-shrink-0">
-          <img src="https://myimgs.org/storage/images/12529/crypto loop.png" alt="Crypto Loop" class="h-20 opacity-80 hover:opacity-100 transition">
-        </a>
+        <!-- REPEAT 3× FOR PERFECT INFINITE LOOP -->
+        <!-- (Same 5 logos repeated 3 times — no gap ever) -->
+        <a href="https://x.com/CNCDDAO" target="_blank" class="flex-shrink-0"><img src="https://myimgs.org/storage/images/12524/cnc.jpeg" alt="CNC DAO" class="h-32 w-32 object-contain rounded-full ring-4 ring-purple-500/60 shadow-2xl opacity-90 hover:opacity-100 transition"></a>
+        <a href="https://x.com/0xParabolicDAO" target="_blank" class="flex-shrink-0"><img src="https://pbs.twimg.com/profile_images/1982158382262894593/fEetDFDh_400x400.jpg" alt="Parabolic DAO" class="h-32 w-32 rounded-full ring-4 ring-purple-500/60 shadow-2xl opacity-90 hover:opacity-100 transition"></a>
+        <a href="https://x.com/dvoiceofweb3" target="_blank" class="flex-shrink-0"><img src="https://myimgs.org/storage/images/12525/voice of web3.jpg" alt="Voice of Web3" class="h-32 w-32 object-contain rounded-full ring-4 ring-purple-500/60 shadow-2xl opacity-90 hover:opacity-100 transition"></a>
+        <a href="https://x.com/NovareAfrica" target="_blank" class="flex-shrink-0"><img src="https://myimgs.org/storage/images/12528/novare.png" alt="Novare Africa" class="h-32 w-32 object-contain rounded-full ring-4 ring-purple-500/60 shadow-2xl opacity-90 hover:opacity-100 transition"></a>
+        <a href="https://x.com/CryptoLoopHQ" target="_blank" class="flex-shrink-0"><img src="https://myimgs.org/storage/images/12529/crypto loop.png" alt="Crypto Loop" class="h-32 w-32 object-contain rounded-full ring-4 ring-purple-500/60 shadow-2xl opacity-90 hover:opacity-100 transition"></a>
 
-        <!-- REPEATED SET 2 -->
-        <a href="https://x.com/CNCDDAO" target="_blank" class="flex-shrink-0">
-          <img src="https://myimgs.org/storage/images/12524/cnc.jpeg" alt="CNC DAO" class="h-20 opacity-80 hover:opacity-100 transition">
-        </a>
-        <a href="https://x.com/0xParabolicDAO" target="_blank" class="flex-shrink-0">
-          <img src="https://pbs.twimg.com/profile_images/1982158382262894593/fEetDFDh_400x400.jpg" alt="Parabolic DAO" class="h-20 rounded-full opacity-80 hover:opacity-100 transition">
-        </a>
-        <a href="https://x.com/dvoiceofweb3" target="_blank" class="flex-shrink-0">
-          <img src="https://myimgs.org/storage/images/12525/voice of web3.jpg" alt="Voice of Web3" class="h-20 opacity-80 hover:opacity-100 transition">
-        </a>
-        <a href="https://x.com/NovareAfrica" target="_blank" class="flex-shrink-0">
-          <img src="https://myimgs.org/storage/images/12528/novare.png" alt="Novare Africa" class="h-20 opacity-80 hover:opacity-100 transition">
-        </a>
-        <a href="https://x.com/CryptoLoopHQ" target="_blank" class="flex-shrink-0">
-          <img src="https://myimgs.org/storage/images/12529/crypto loop.png" alt="Crypto Loop" class="h-20 opacity-80 hover:opacity-100 transition">
-        </a>
+        <a href="https://x.com/CNCDDAO" target="_blank" class="flex-shrink-0"><img src="https://myimgs.org/storage/images/12524/cnc.jpeg" alt="CNC DAO" class="h-32 w-32 object-contain rounded-full ring-4 ring-purple-500/60 shadow-2xl opacity-90 hover:opacity-100 transition"></a>
+        <a href="https://x.com/0xParabolicDAO" target="_blank" class="flex-shrink-0"><img src="https://pbs.twimg.com/profile_images/1982158382262894593/fEetDFDh_400x400.jpg" alt="Parabolic DAO" class="h-32 w-32 rounded-full ring-4 ring-purple-500/60 shadow-2xl opacity-90 hover:opacity-100 transition"></a>
+        <a href="https://x.com/dvoiceofweb3" target="_blank" class="flex-shrink-0"><img src="https://myimgs.org/storage/images/12525/voice of web3.jpg" alt="Voice of Web3" class="h-32 w-32 object-contain rounded-full ring-4 ring-purple-500/60 shadow-2xl opacity-90 hover:opacity-100 transition"></a>
+        <a href="https://x.com/NovareAfrica" target="_blank" class="flex-shrink-0"><img src="https://myimgs.org/storage/images/12528/novare.png" alt="Novare Africa" class="h-32 w-32 object-contain rounded-full ring-4 ring-purple-500/60 shadow-2xl opacity-90 hover:opacity-100 transition"></a>
+        <a href="https://x.com/CryptoLoopHQ" target="_blank" class="flex-shrink-0"><img src="https://myimgs.org/storage/images/12529/crypto loop.png" alt="Crypto Loop" class="h-32 w-32 object-contain rounded-full ring-4 ring-purple-500/60 shadow-2xl opacity-90 hover:opacity-100 transition"></a>
       </div>
     </div>
 
@@ -177,7 +167,7 @@
     </style>
   </section>
 
-  <!-- FOUNDERS SECTION - YOU + SUCCESS SIDE BY SIDE -->
+  <!-- FOUNDERS -->
   <section class="py-32 px-6">
     <h2 class="text-center text-5xl md:text-6xl font-black bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent mb-20">
       Founders
@@ -189,9 +179,8 @@
         <h3 class="text-3xl font-bold mb-2">Engr. Mikailu Samuel Nadro</h3>
         <p class="text-xl text-purple-400 mb-6">@0xParabolicDAO</p>
         <p class="text-gray-300 leading-relaxed">
-          Founder & CTO of Parabolic DAO. Blockchain engineer, lecturer at Modibbo Adama University, and published researcher (IEEE Blockchain, Crypto Research Journal). 
-          Trained 500+ students in Solidity, Rust, and Web3 across Northern Nigeria. Co-founder of FreeLanceDAO on Solana & Hedera. 
-          Building transparent, high-stakes entertainment in Web3.
+          Founder & CTO of Parabolic DAO. Blockchain engineer, lecturer at Modibbo Adama University, published researcher (IEEE). 
+          Trained 500+ students in Web3 dev. Co-founder of FreeLanceDAO. Building the future of African Web3.
         </p>
       </div>
 
@@ -201,20 +190,45 @@
         <h3 class="text-3xl font-bold mb-2">Success Ola-Ojo</h3>
         <p class="text-xl text-purple-400 mb-6">@Web3Geek</p>
         <p class="text-gray-300 leading-relaxed">
-          Community Builder & Blockchain Educator. Host of The Voice of Web3, taking blockchain education to the grassroots. 
-          Regional Captain for SuperteamNG (North East & North West). Helps top Web3 brands grow inclusive, engaged communities. 
+          Community Builder & Blockchain Educator. Host of The Voice of Web3. Regional Captain for SuperteamNG. 
           Believes “No matter how far you go, it’s still day one.”
         </p>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="py-12 border-t border-purple-900/40 text-center text-gray-400">
-    <div class="flex flex-col sm:flex-row justify-center gap-6 text-lg">
-      <span>© 2025 Parabolic DAO</span>
-      <a href="https://x.com/0xParabolicDAO" target="_blank" class="hover:text-purple-400"><i class="fab fa-x-twitter mr-2"></i>Follow on X</a>
-      <a href="mailto:0xparabolicdao@gmail.com" class="hover:text-purple-400"><i class="fas fa-envelope mr-2"></i>Contact</a>
+  <!-- BIG, BEAUTIFUL FOOTER -->
+  <footer class="py-20 px-6 border-t border-purple-900/40 bg-black/60">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12 text-center md:text-left">
+      <div>
+        <h3 class="text-3xl font-black bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent mb-4">Web3 Battle Series</h3>
+        <p class="text-gray-400 leading-relaxed">The first boxing-style, judge-decided tournament in Web3.<br>May the best protocol win — on facts, not hype.</p>
+      </div>
+
+      <div>
+        <h4 class="text-xl font-bold text-purple-400 mb-6">Navigation</h4>
+        <ul class="space-y-4 text-gray-300">
+          <li><a href="/" class="hover:text-white transition">Home</a></li>
+          <li><a href="/propose-battle.html" class="hover:text-white transition">Propose Battle</a></li>
+          <li><a href="/apply-judge.html" class="hover:text-white transition">Become Judge</a></li>
+          <li><a href="https://docs.google.com/document/d/1-lUXO-x-CM5Exf4R4Qv6nzsaqY_pVweF8PUmSpgb45w/edit?usp=sharing" target="_blank" class="hover:text-white transition">Rulebook</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-xl font-bold text-purple-400 mb-6">Founders</h4>
+        <p class="text-gray-300 mb-2"><a href="https://x.com/0xParabolicDAO" target="_blank" class="hover:text-purple-400">@0xParabolicDAO</a></p>
+        <p class="text-gray-300"><a href="https://x.com/Web3Geek" target="_blank" class="hover:text-purple-400">@Web3Geek</a></p>
+      </div>
+
+      <div>
+        <h4 class="text-xl font-bold text-purple-400 mb-6">Follow Us</h4>
+        <div class="flex justify-center md:justify-start gap-8 text-4xl mb-8">
+          <a href="https://x.com/0xParabolicDAO" target="_blank" class="text-purple-400 hover:text-white transition"><i class="fab fa-x-twitter"></i></a>
+          <a href="mailto:0xparabolicdao@gmail.com" class="text-purple-400 hover:text-white transition"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p class="text-sm text-gray-500">© 2025 Parabolic DAO • All battles settled on-chain</p>
+      </div>
     </div>
   </footer>
 
