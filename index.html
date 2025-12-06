@@ -12,47 +12,60 @@
   <style>
     body { font-family: 'Inter', sans-serif; background: #000; color: #e2e8f0; margin:0; overflow-x:hidden; }
 
-    /* PROFESSIONAL WHITE DOTS — BIG, ANIMATED, FADING ON WHOLE PAGE */
-    .dots-bg {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
+    /* CRYSTAL LINE GRID — BACK AND BEAUTIFUL */
+    .crystal-grid {
+      position: fixed; inset: 0; z-index: -2; pointer-events: none;
       background-image: 
-        radial-gradient(circle at center, rgba(255, 255, 255, 0.25) 1px, transparent 2px),
-        radial-gradient(circle at center, rgba(168, 85, 247, 0.18) 1px, transparent 2px);
-      background-size: 80px 80px;
-      background-position: 0 0, 40px 40px;
-      animation: floatPulse 40s ease-in-out infinite;
-      opacity: 0.8;
+        linear-gradient(rgba(168,85,247,0.14) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(168,85,247,0.14) 1px, transparent 1px);
+      background-size: 70px 70px;
+      animation: flow 120s linear infinite;
     }
-    @keyframes floatPulse {
-      0%, 100% { 
-        transform: translateY(0) translateX(0) scale(1); 
-        opacity: 0.6;
-      }
-      50% { 
-        transform: translateY(-40px) translateX(-20px) scale(1.05); 
-        opacity: 1;
-      }
+    @keyframes flow { from { background-position: 0 0; } to { background-position: 70px 70px; } }
+
+    /* BRIGHTER & BIGGER DOTS AT GRID INTERSECTIONS */
+    .dots-grid {
+      position: fixed; inset: 0; z-index: -1; pointer-events: none;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.4) 2px, transparent 2px);
+      background-size: 70px 70px;
+      background-position: 35px 35px;
+      animation: pulseDots 8s ease-in-out infinite;
+    }
+    @keyframes pulseDots {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.1); }
     }
 
-    .glass {
-      background: rgba(30,30,50,0.55);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(168,85,247,0.35);
-      transition: all 0.4s;
+    /* LIQUID CRYSTAL GLASS PANELS — iOS-STYLE TRANSLUCENCY */
+    .liquid-glass {
+      background: rgba(20,20,40,0.35);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(168,85,247,0.25);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      transition: all 0.4s ease;
     }
-    .glass:hover {
-      transform: translateY(-10px);
-      border-color: rgba(168,85,247,0.7);
+    .liquid-glass:hover {
+      transform: translateY(-12px);
+      border-color: rgba(168,85,247,0.6);
+      box-shadow: 0 20px 50px rgba(168,85,247,0.2);
+    }
+
+    /* FOOTER — STRATEGIC DRAGON POSTER (SUBTLE, NO ONE WILL NOTICE IT'S THE SAME) */
+    .footer-bg {
+      background: 
+        linear-gradient(to top, #000 20%, transparent 100%),
+        url('https://myimgs.org/storage/images/12809/Gemini_Generated_Image_aq9lgtaq9lgtaq9l.png') 
+        center bottom / 200% auto no-repeat fixed;
+      filter: brightness(0.4) contrast(1.2);
     }
   </style>
 </head>
 <body>
 
-  <!-- BIG WHITE DOTS — ACROSS ENTIRE PAGE -->
-  <div class="dots-bg"></div>
+  <!-- CRYSTAL GRID + GLOWING DOTS AT INTERSECTIONS -->
+  <div class="crystal-grid"></div>
+  <div class="dots-grid"></div>
 
   <!-- HEADER -->
   <header class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-xl border-b border-purple-900/50">
@@ -61,14 +74,12 @@
         <img src="https://pbs.twimg.com/profile_images/1982158382262894593/fEetDFDh_400x400.jpg" alt="Parabolic DAO" class="w-14 h-14 rounded-full ring-4 ring-purple-600/60">
         <span class="text-2xl font-black bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">Web3 Battle Series</span>
       </div>
-
       <nav class="hidden md:flex items-center gap-10 text-lg font-medium">
         <a href="/" class="text-white hover:text-purple-400 transition">Home</a>
         <a href="/propose-battle.html" class="text-white hover:text-purple-400 transition">Propose Battle</a>
         <a href="/apply-judge.html" class="text-white hover:text-purple-400 transition">Become Judge</a>
         <a href="https://docs.google.com/document/d/1-lUXO-x-CM5Exf4R4Qv6nzsaqY_pVweF8PUmSpgb45w/edit?usp=sharing" target="_blank" class="text-purple-400 hover:text-purple-300 font-bold transition">Rulebook</a>
       </nav>
-
       <button id="burger" class="text-3xl text-purple-400 md:hidden"><i class="fas fa-bars"></i></button>
     </div>
   </header>
@@ -84,26 +95,24 @@
     </div>
   </div>
 
-  <!-- HERO - DRAGON POSTER ONLY HERE -->
+  <!-- HERO - DRAGON POSTER -->
   <section class="min-h-screen flex items-center justify-center px-6 text-center pt-20 relative">
     <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('https://myimgs.org/storage/images/12809/Gemini_Generated_Image_aq9lgtaq9lgtaq9l.png'); filter: brightness(0.65);"></div>
     <div class="absolute inset-0 bg-black/45"></div>
-
     <div class="relative z-10">
       <h1 class="text-6xl sm:text-8xl md:text-9xl font-black bg-gradient-to-r from-purple-300 via-pink-300 to-purple-300 bg-clip-text text-transparent leading-tight drop-shadow-2xl">
         WEB3 BATTLE SERIES
       </h1>
       <p class="mt-8 text-2xl md:text-4xl text-white drop-shadow-lg">May the best protocol win</p>
       <div class="mt-12 flex flex-col sm:flex-row gap-6 justify-center">
-        <a href="/propose-battle.html" class="px-12 py-5 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-bold rounded-full text-xl shadow-2xl glass backdrop-blur-xl border border-purple-500/50">Propose Battle</a>
-        <a href="/apply-judge.html" class="px-12 py-5 border-2 border-purple-400 hover:bg-purple-500/30 text-white font-bold rounded-full text-xl glass backdrop-blur-xl">Become Judge</a>
+        <a href="/propose-battle.html" class="px-12 py-5 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-bold rounded-full text-xl shadow-2xl liquid-glass backdrop-blur-xl border border-purple-500/50">Propose Battle</a>
+        <a href="/apply-judge.html" class="px-12 py-5 border-2 border-purple-400 hover:bg-purple-500/30 text-white font-bold rounded-full text-xl liquid-glass backdrop-blur-xl">Become Judge</a>
       </div>
       <a href="https://docs.google.com/document/d/1-lUXO-x-CM5Exf4R4Qv6nzsaqY_pVweF8PUmSpgb45w/edit?usp=sharing" target="_blank" class="inline-block mt-10 text-purple-300 hover:text-white text-lg font-medium drop-shadow-lg">OFFICIAL RULEBOOK →</a>
     </div>
   </section>
 
   <!-- WHAT IS -->
-  -->
   <section class="py-32 px-6 max-w-7xl mx-auto text-center">
     <h2 class="text-5xl md:text-7xl font-black bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent mb-16">What is Web3 Battle Series?</h2>
     <p class="text-xl md:text-2xl text-gray-400 max-w-4xl mx-auto mb-20 leading-relaxed">
@@ -111,9 +120,9 @@
       No price pumping. No shilling. Just facts, data, and three independent judges using the professional 10-point must system.
     </p>
     <div class="grid md:grid-cols-3 gap-10">
-      <div class="glass p-10 rounded-3xl text-center"><i class="fas fa-weight-hanging text-6xl text-purple-400 mb-6"></i><h3 class="text-2xl font-bold mb-4">Fair Weight Classes</h3><p class="text-gray-400">Only comparable projects fight</p></div>
-      <div class="glass p-10 rounded-3xl text-center"><i class="fas fa-gavel text-6xl text-purple-400 mb-6"></i><h3 class="text-2xl font-bold mb-4">Independent Judges</h3><p class="text-gray-400">DAO-ratified · Zero conflicts</p></div>
-      <div class="glass p-10 rounded-3xl text-center"><i class="fas fa-trophy text-6xl text-purple-400 mb-6"></i><h3 class="text-2xl font-bold mb-4">Championship Belt</h3><p class="text-gray-400">NFT + optional physical belt</p></div>
+      <div class="liquid-glass p-10 rounded-3xl text-center"><i class="fas fa-weight-hanging text-6xl text-purple-400 mb-6"></i><h3 class="text-2xl font-bold mb-4">Fair Weight Classes</h3><p class="text-gray-400">Only comparable projects fight</p></div>
+      <div class="liquid-glass p-10 rounded-3xl text-center"><i class="fas fa-gavel text-6xl text-purple-400 mb-6"></i><h3 class="text-2xl font-bold mb-4">Independent Judges</h3><p class="text-gray-400">DAO-ratified · Zero conflicts</p></div>
+      <div class="liquid-glass p-10 rounded-3xl text-center"><i class="fas fa-trophy text-6xl text-purple-400 mb-6"></i><h3 class="text-2xl font-bold mb-4">Championship Belt</h3><p class="text-gray-400">NFT + optional physical belt</p></div>
     </div>
   </section>
 
@@ -121,9 +130,9 @@
   <section class="py-32 px-6">
     <h2 class="text-center text-5xl font-black bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent mb-16">Support the Series (Voluntary)</h2>
     <div class="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
-      <div class="glass p-10 rounded-3xl text-center"><i class="fab fa-ethereum text-8xl text-purple-400 mb-6"></i><p class="text-sm uppercase text-gray-500 mb-4">EVM</p><code class="block font-mono text-xs bg-black/60 px-6 py-4 rounded-2xl mb-5 break-all">0x86a247d4686274625b7d408d281c4515ff5532f9</code><button onclick="navigator.clipboard.writeText('0x86a247d4686274625b7d408d281c4515ff5532f9');this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',2000)" class="text-purple-400 hover:text-white">Copy</button></div>
-      <div class="glass p-10 rounded-3xl text-center"><i class="fab fa-bitcoin text-8xl text-orange-500 mb-6"></i><p class="text-sm uppercase text-gray-500 mb-4">Bitcoin</p><code class="block font-mono text-xs bg-black/60 px-6 py-4 rounded-2xl mb-5 break-all">bc1qhzz8x6tak8nl2f6e6dhceyuwsj6tdg924cgjw2</code><button onclick="navigator.clipboard.writeText('bc1qhzz8x6tak8nl2f6e6dhceyuwsj6tdg924cgjw2');this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',2000)" class="text-orange-400 hover:text-white">Copy</button></div>
-      <div class="glass p-10 rounded-3xl text-center"><img src="https://cryptologos.cc/logos/solana-sol-logo.png" alt="Solana" class="w-32 mx-auto mb-6"/><p class="text-sm uppercase text-gray-500 mb-4">Solana</p><code class="block font-mono text-xs bg-black/60 px-6 py-4 rounded-2xl mb-5 break-all">HXK1mAT99M7enBf2QQjJBpoFcPziRGxmfQxqJhzFzuNe</code><button onclick="navigator.clipboard.writeText('HXK1mAT99M7enBf2QQjJBpoFcPziRGxmfQxqJhzFzuNe');this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',2000)" class="text-green-400 hover:text-white">Copy</button></div>
+      <div class="liquid-glass p-10 rounded-3xl text-center"><i class="fab fa-ethereum text-8xl text-purple-400 mb-6"></i><p class="text-sm uppercase text-gray-500 mb-4">EVM</p><code class="block font-mono text-xs bg-black/60 px-6 py-4 rounded-2xl mb-5 break-all">0x86a247d4686274625b7d408d281c4515ff5532f9</code><button onclick="navigator.clipboard.writeText('0x86a247d4686274625b7d408d281c4515ff5532f9');this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',2000)" class="text-purple-400 hover:text-white">Copy</button></div>
+      <div class="liquid-glass p-10 rounded-3xl text-center"><i class="fab fa-bitcoin text-8xl text-orange-500 mb-6"></i><p class="text-sm uppercase text-gray-500 mb-4">Bitcoin</p><code class="block font-mono text-xs bg-black/60 px-6 py-4 rounded-2xl mb-5 break-all">bc1qhzz8x6tak8nl2f6e6dhceyuwsj6tdg924cgjw2</code><button onclick="navigator.clipboard.writeText('bc1qhzz8x6tak8nl2f6e6dhceyuwsj6tdg924cgjw2');this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',2000)" class="text-orange-400 hover:text-white">Copy</button></div>
+      <div class="liquid-glass p-10 rounded-3xl text-center"><img src="https://cryptologos.cc/logos/solana-sol-logo.png" alt="Solana" class="w-32 mx-auto mb-6"/><p class="text-sm uppercase text-gray-500 mb-4">Solana</p><code class="block font-mono text-xs bg-black/60 px-6 py-4 rounded-2xl mb-5 break-all">HXK1mAT99M7enBf2QQjJBpoFcPziRGxmfQxqJhzFzuNe</code><button onclick="navigator.clipboard.writeText('HXK1mAT99M7enBf2QQjJBpoFcPziRGxmfQxqJhzFzuNe');this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',2000)" class="text-green-400 hover:text-white">Copy</button></div>
     </div>
   </section>
 
@@ -140,7 +149,7 @@
         <a href="https://x.com/NovareAfrica" target="_blank" class="flex-shrink-0"><img src="https://myimgs.org/storage/images/12528/novare.png" alt="Novare Africa" class="h-32 w-32 object-contain rounded-full ring-4 ring-purple-500/60 shadow-2xl opacity-90 hover:opacity-100 transition"></a>
         <a href="https://x.com/CryptoLoopHQ" target="_blank" class="flex-shrink-0"><img src="https://myimgs.org/storage/images/12529/crypto loop.png" alt="Crypto Loop" class="h-32 w-32 object-contain rounded-full ring-4 ring-purple-500/60 shadow-2xl opacity-90 hover:opacity-100 transition"></a>
 
-        <!-- Repeat for infinite -->
+        <!-- Repeat for infinite scroll -->
         <a href="https://x.com/CNCDDAO" target="_blank" class="flex-shrink-0"><img src="https://myimgs.org/storage/images/12524/cnc.jpeg" alt="CNC DAO" class="h-32 w-32 object-contain rounded-full ring-4 ring-purple-500/60 shadow-2xl opacity-90 hover:opacity-100 transition"></a>
         <a href="https://x.com/0xParabolicDAO" target="_blank" class="flex-shrink-0"><img src="https://pbs.twimg.com/profile_images/1982158382262894593/fEetDFDh_400x400.jpg" alt="Parabolic DAO" class="h-32 w-32 rounded-full ring-4 ring-purple-500/60 shadow-2xl opacity-90 hover:opacity-100 transition"></a>
         <a href="https://x.com/dvoiceofweb3" target="_blank" class="flex-shrink-0"><img src="https://myimgs.org/storage/images/12525/voice of web3.jpg" alt="Voice of Web3" class="h-32 w-32 object-contain rounded-full ring-4 ring-purple-500/60 shadow-2xl opacity-90 hover:opacity-100 transition"></a>
@@ -162,13 +171,13 @@
     </style>
   </section>
 
-  <!-- FOUNDERS — BOTH IMAGES NOW WORKING -->
+  <!-- FOUNDERS -->
   <section class="py-32 px-6">
     <h2 class="text-center text-5xl md:text-6xl font-black bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent mb-20">
       Founders
     </h2>
     <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-      <div class="glass p-10 rounded-3xl text-center">
+      <div class="liquid-glass p-10 rounded-3xl text-center">
         <img src="https://myimgs.org/storage/images/12457/MIK.jpg" alt="Engr. Mikailu Samuel Nadro" class="w-48 h-48 mx-auto rounded-full ring-4 ring-purple-500/50 mb-6"/>
         <h3 class="text-3xl font-bold mb-2">Engr. Mikailu Samuel Nadro</h3>
         <p class="text-xl text-purple-400 mb-6">@0xParabolicDAO</p>
@@ -177,7 +186,7 @@
           Trained 500+ students in Web3 dev across Northern Nigeria.
         </p>
       </div>
-      <div class="glass p-10 rounded-3xl text-center">
+      <div class="liquid-glass p-10 rounded-3xl text-center">
         <img src="https://myimgs.org/storage/images/12523/success.png" alt="Success Ola-Ojo" class="w-48 h-48 mx-auto rounded-full ring-4 ring-purple-500/50 mb-6"/>
         <h3 class="text-3xl font-bold mb-2">Success Ola-Ojo</h3>
         <p class="text-xl text-purple-400 mb-6">@Web3Geek</p>
@@ -189,9 +198,9 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="py-20 px-6 border-t border-purple-900/40 bg-black/60">
-    <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12 text-center md:text-left">
+  <!-- FOOTER WITH SUBTLE DRAGON ENERGY -->
+  <footer class="py-32 px-6 border-t border-purple-900/40 footer-bg relative">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12 text-center md:text-left relative z-10">
       <div>
         <h3 class="text-3xl font-black bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent mb-4">Web3 Battle Series</h3>
         <p class="text-gray-400 leading-relaxed">The first boxing-style, judge-decided tournament in Web3.<br>May the best protocol win — on facts, not hype.</p>
