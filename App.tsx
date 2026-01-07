@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
+import Layout from './components/Layout.tsx';
+import HomeSection from './components/HomeSection.tsx';
+import NFTBeltsSection from './components/NFTBeltsSection.tsx';
 
 const App: React.FC = () => {
+  const [currentView, setCurrentView] = useState<'home' | 'nfts'>('home');
+
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold text-center mb-8">
-          Web3 Battle Series
-        </h1>
-        <p className="text-center text-gray-400">
-          Frontend is working! ✅
-        </p>
-      </div>
-    </div>
+    <Layout onViewChange={setCurrentView} currentView={currentView}>
+      {currentView === 'home' ? <HomeSection /> : <NFTBeltsSection />}
+    </Layout>
   );
 };
 
