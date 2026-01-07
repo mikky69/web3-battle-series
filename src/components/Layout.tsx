@@ -107,8 +107,21 @@ const Layout: React.FC<LayoutProps> = ({ children, onViewChange, currentView }) 
         {children}
       </main>
 
-      {/* FOOTER */}
-      <footer className="py-32 px-6 border-t border-purple-900/40 footer-bg relative">
+      {/* FOOTER with Background Image */}
+      <footer className="py-32 px-6 border-t border-purple-900/40 relative overflow-hidden">
+        {/* Background Image Layer */}
+        <div 
+          className="absolute inset-0 opacity-30"
+          style={{
+            backgroundImage: "linear-gradient(to top, #000 10%, transparent 90%), url('https://myimgs.org/storage/images/12809/Gemini_Generated_Image_aq9lgtaq9lgtaq9l.png')",
+            backgroundPosition: 'center bottom',
+            backgroundSize: '180% auto',
+            backgroundRepeat: 'no-repeat',
+            backgroundAttachment: 'fixed',
+            filter: 'brightness(0.7)'
+          }}
+        ></div>
+        
         <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-12 text-center md:text-left relative z-10">
           <div>
             <h3 className="text-3xl font-black bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent mb-4 font-orbitron uppercase tracking-tighter">Web3 Battle Series</h3>
@@ -118,21 +131,29 @@ const Layout: React.FC<LayoutProps> = ({ children, onViewChange, currentView }) 
             <h4 className="text-sm font-black text-purple-300 mb-6 font-orbitron uppercase tracking-widest">Navigation</h4>
             <ul className="space-y-4 text-[#f0f0ff] font-medium">
               <li><button onClick={() => onViewChange('home')} className="hover:text-white transition">Home</button></li>
-              <li><button onClick={handleComingSoon} className="hover:text-white transition">Propose Battle</button></li>
-              <li><button onClick={handleComingSoon} className="hover:text-white transition">Become Judge</button></li>
-              <li><a href="https://docs.google.com/document/d/1-lUXO-x-CM5Exf4R4Qv6nzsaqY_pVweF8PUmSpgb45w/edit?usp=sharing" target="_blank" className="hover:text-white transition">Rulebook</a></li>
+              <li><a href="/propose-battle.html" className="hover:text-white transition">Propose Battle</a></li>
+              <li><a href="/apply-judge.html" className="hover:text-white transition">Become Judge</a></li>
+              <li><a href="https://docs.google.com/document/d/1-lUXO-x-CM5Exf4R4Qv6nzsaqY_pVweF8PUmSpgb45w/edit?usp=sharing" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Rulebook</a></li>
             </ul>
           </div>
           <div>
             <h4 className="text-sm font-black text-purple-300 mb-6 font-orbitron uppercase tracking-widest">Founders</h4>
-            <p className="text-[#f0f0ff] mb-2 font-medium"><a href="https://x.com/0xParabolicDAO" target="_blank" className="hover:text-white">@0xParabolicDAO</a></p>
-            <p className="text-[#f0f0ff] font-medium"><a href="https://x.com/Web3Geek" target="_blank" className="hover:text-white">@Web3Geek</a></p>
+            <p className="text-[#f0f0ff] mb-2 font-medium">
+              <a href="https://x.com/0xParabolicDAO" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">@0xParabolicDAO</a>
+            </p>
+            <p className="text-[#f0f0ff] font-medium">
+              <a href="https://x.com/Web3Geek01" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">@Web3Geek01</a>
+            </p>
           </div>
           <div>
             <h4 className="text-sm font-black text-purple-300 mb-6 font-orbitron uppercase tracking-widest">Follow Us</h4>
             <div className="flex justify-center md:justify-start gap-8 text-3xl mb-8">
-              <a href="https://x.com/0xParabolicDAO" target="_blank" className="text-purple-300 hover:text-white transition"><i className="fab fa-x-twitter"></i></a>
-              <a href="mailto:0xparabolicdao@gmail.com" className="text-purple-300 hover:text-white transition"><i className="fas fa-envelope"></i></a>
+              <a href="https://x.com/0xParabolicDAO" target="_blank" rel="noopener noreferrer" className="text-purple-300 hover:text-white transition">
+                <i className="fab fa-x-twitter"></i>
+              </a>
+              <a href="mailto:0xparabolicdao@gmail.com" className="text-purple-300 hover:text-white transition">
+                <i className="fas fa-envelope"></i>
+              </a>
             </div>
             <p className="text-[10px] text-[#f0f0ff] opacity-60 font-bold uppercase tracking-widest">© 2025 Parabolic DAO • All battles settled on-chain</p>
           </div>
