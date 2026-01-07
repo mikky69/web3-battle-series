@@ -145,7 +145,11 @@ const HomeSection: React.FC = () => {
           <div className="super-glass p-10 rounded-3xl text-center">
             <img src="https://myimgs.org/storage/images/12457/MIK.jpg" alt="Engr. Mikailu Samuel Nadro" className="w-48 h-48 mx-auto rounded-full ring-4 ring-purple-500/50 mb-6 object-cover"/>
             <h3 className="text-3xl font-bold mb-2 text-white">Engr. Mikailu Samuel Nadro</h3>
-            <p className="text-xl text-purple-400 mb-6 font-orbitron">@0xParabolicDAO</p>
+            <p className="text-xl text-purple-400 mb-6 font-orbitron">
+              <a href="https://x.com/0xParabolicDAO" target="_blank" rel="noopener noreferrer" className="hover:text-purple-300 transition">
+                @0xParabolicDAO
+              </a>
+            </p>
             <p className="text-gray-300 leading-relaxed">
               Founder & CTO of Parabolic DAO. Blockchain engineer, lecturer at Modibbo Adama University, and published researcher (IEEE Blockchain, Crypto Research Journal). 
               Trained 500+ students in Solidity, Rust, and Web3 across Northern Nigeria. Co-founder of FreeLanceDAO on Solana & Hedera. 
@@ -155,7 +159,11 @@ const HomeSection: React.FC = () => {
           <div className="super-glass p-10 rounded-3xl text-center">
             <img src="https://myimgs.org/storage/images/12523/success.png" alt="Success Ola-Ojo" className="w-48 h-48 mx-auto rounded-full ring-4 ring-purple-500/50 mb-6 object-cover"/>
             <h3 className="text-3xl font-bold mb-2 text-white">Success Ola-Ojo</h3>
-            <p className="text-xl text-purple-400 mb-6 font-orbitron">@Web3Geek</p>
+            <p className="text-xl text-purple-400 mb-6 font-orbitron">
+              <a href="https://x.com/Web3Geek01" target="_blank" rel="noopener noreferrer" className="hover:text-purple-300 transition">
+                @Web3Geek01
+              </a>
+            </p>
             <p className="text-gray-300 leading-relaxed">
               Community Builder & Blockchain Educator. Host of The Voice of Web3, taking blockchain education to the grassroots. 
               Regional Captain for SuperteamNG (North East & North West). Helps top Web3 brands grow inclusive, engaged communities. 
