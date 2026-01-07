@@ -146,7 +146,9 @@ const Carousel: React.FC<CarouselProps> = ({ items = [] }) => {
                   <img src="https://opensea.io/static/images/logos/opensea-logo.svg" alt="OpenSea" className="w-5 h-5" />
                   <span>OpenSea</span>
                   <span>•</span>
-                  <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="Base" className="w-5 h-5" />
+                  <svg className="w-5 h-5" viewBox="0 0 111 111" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M54.921 110.034C85.359 110.034 110.034 85.402 110.034 55.017C110.034 24.6319 85.359 0 54.921 0C26.0432 0 2.35281 22.1714 0 50.3923H72.8467V59.6416H3.9565e-07C2.35281 87.8625 26.0432 110.034 54.921 110.034Z" fill="#0052FF"/>
+                  </svg>
                   <span>Base</span>
                 </div>
               </div>
@@ -160,7 +162,9 @@ const Carousel: React.FC<CarouselProps> = ({ items = [] }) => {
                 <div>
                   <div className="text-[10px] font-bold text-gray-600 tracking-widest uppercase mb-2">Network</div>
                   <div className="flex items-center gap-2 justify-center lg:justify-start">
-                    <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="Base" className="w-6 h-6" />
+                    <svg className="w-6 h-6" viewBox="0 0 111 111" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M54.921 110.034C85.359 110.034 110.034 85.402 110.034 55.017C110.034 24.6319 85.359 0 54.921 0C26.0432 0 2.35281 22.1714 0 50.3923H72.8467V59.6416H3.9565e-07C2.35281 87.8625 26.0432 110.034 54.921 110.034Z" fill="#0052FF"/>
+                    </svg>
                     <span className="text-2xl font-orbitron font-black text-purple-500">BASE</span>
                   </div>
                 </div>
