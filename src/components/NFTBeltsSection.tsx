@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Carousel from './Carousel.tsx';
-import { BELTS } from '../constants.ts';
+import Carousel from './Carousel';
+import { BELTS } from '../constants';
 
 const NFTBeltsSection: React.FC = () => {
   const [email, setEmail] = useState('');
