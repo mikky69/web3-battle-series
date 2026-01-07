@@ -144,9 +144,7 @@ const Carousel: React.FC<CarouselProps> = ({ items = [] }) => {
                 </button>
                 <div className="flex items-center gap-3 text-[10px] font-orbitron font-bold text-gray-500 uppercase tracking-widest bg-white/5 px-6 py-4 rounded-xl border border-white/5">
                   <img src="https://opensea.io/static/images/logos/opensea-logo.svg" alt="OpenSea" className="w-5 h-5" />
-                  OpenSea • 
-                  <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="Base" className="w-5 h-5" />
-                  Base
+                  OpenSea • Base Network
                 </div>
               </div>
 
@@ -158,10 +156,7 @@ const Carousel: React.FC<CarouselProps> = ({ items = [] }) => {
                 </div>
                 <div>
                   <div className="text-[10px] font-bold text-gray-600 tracking-widest uppercase mb-2">Network</div>
-                  <div className="flex items-center gap-2 justify-start">
-                    <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="Base" className="w-6 h-6" />
-                    <span className="text-2xl font-orbitron font-black text-purple-500">BASE</span>
-                  </div>
+                  <div className="text-2xl font-orbitron font-black text-purple-500">BASE MAINNET</div>
                 </div>
               </div>
             </div>
