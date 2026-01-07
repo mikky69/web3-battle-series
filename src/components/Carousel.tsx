@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { Belt } from '../types.ts';
+import { Belt } from '../types';
 
 interface CarouselProps {
   items: Belt[];
