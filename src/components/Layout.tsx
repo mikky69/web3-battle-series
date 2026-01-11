@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ConnectWallet from './ConnectWallet';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -9,7 +10,6 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children, onViewChange, currentView }) => {
   const [showToast, setShowToast] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [walletAddress, setWalletAddress] = useState<string | null>(null);
 
   const handleComingSoon = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -18,14 +18,7 @@ const Layout: React.FC<LayoutProps> = ({ children, onViewChange, currentView }) 
     setIsMobileMenuOpen(false);
   };
 
-  const connectWallet = () => {
-    if (walletAddress) {
-      setWalletAddress(null);
-    } else {
-      // Simulate wallet connection
-      setWalletAddress('0x71C...4e9c');
-    }
-  };
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,8 +49,8 @@ const Layout: React.FC<LayoutProps> = ({ children, onViewChange, currentView }) 
       {/* HEADER */}
       <header className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-xl border-b border-purple-900/50">
         <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-          <div 
-            className="flex items-center gap-5 cursor-pointer group" 
+          <div
+            className="flex items-center gap-5 cursor-pointer group"
             onClick={() => onViewChange('home')}
           >
             <div className="relative">
@@ -66,7 +59,7 @@ const Layout: React.FC<LayoutProps> = ({ children, onViewChange, currentView }) 
             </div>
             <span className="text-2xl font-black bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent hidden sm:inline font-orbitron tracking-tighter uppercase">Web3 Battle Series</span>
           </div>
-          
+
           <div className="flex items-center gap-8">
             <nav className="hidden lg:flex items-center gap-10 text-[13px] font-orbitron font-black tracking-widest uppercase">
               <button onClick={() => onViewChange('home')} className={`${currentView === 'home' ? 'text-purple-400 border-b-2 border-purple-400 pb-1' : 'text-white'} hover:text-purple-400 transition`}>Home</button>
@@ -76,14 +69,15 @@ const Layout: React.FC<LayoutProps> = ({ children, onViewChange, currentView }) 
               <button onClick={handleComingSoon} className="text-white hover:text-purple-400 transition">DAO</button>
             </nav>
 
-            <button 
+            {/* <button 
               onClick={connectWallet}
               className="px-6 py-3 rounded bg-purple-600/10 border border-purple-500/50 text-white font-orbitron font-black text-[10px] tracking-widest uppercase hover:bg-purple-600 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] transition-all flex items-center gap-3 active:scale-95 whitespace-nowrap"
             >
               <i className={`fas ${walletAddress ? 'fa-wallet text-green-400' : 'fa-link'}`}></i>
               {walletAddress ? walletAddress : 'Connect Wallet'}
-            </button>
-            
+            </button>  */}
+            <ConnectWallet />
+
             <button id="burger" onClick={() => setIsMobileMenuOpen(true)} className="text-2xl text-purple-400 lg:hidden hover:scale-110 transition-transform">
               <i className="fas fa-bars"></i>
             </button>
@@ -110,7 +104,7 @@ const Layout: React.FC<LayoutProps> = ({ children, onViewChange, currentView }) 
       {/* FOOTER with Background Image */}
       <footer className="py-32 px-6 border-t border-purple-900/40 relative overflow-hidden">
         {/* Background Image Layer */}
-        <div 
+        <div
           className="absolute inset-0 opacity-30"
           style={{
             backgroundImage: "linear-gradient(to top, #000 10%, transparent 90%), url('https://myimgs.org/storage/images/12809/Gemini_Generated_Image_aq9lgtaq9lgtaq9l.png')",
@@ -121,11 +115,11 @@ const Layout: React.FC<LayoutProps> = ({ children, onViewChange, currentView }) 
             filter: 'brightness(0.7)'
           }}
         ></div>
-        
+
         <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-12 text-center md:text-left relative z-10">
           <div>
             <h3 className="text-3xl font-black bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent mb-4 font-orbitron uppercase tracking-tighter">Web3 Battle Series</h3>
-            <p className="text-[#f0f0ff] leading-relaxed font-medium">The first boxing-style, judge-decided tournament in Web3.<br/>May the best protocol win on facts, not hype.</p>
+            <p className="text-[#f0f0ff] leading-relaxed font-medium">The first boxing-style, judge-decided tournament in Web3.<br />May the best protocol win on facts, not hype.</p>
           </div>
           <div>
             <h4 className="text-sm font-black text-purple-300 mb-6 font-orbitron uppercase tracking-widest">Navigation</h4>

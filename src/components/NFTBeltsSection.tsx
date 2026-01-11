@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import Carousel from './Carousel';
 import { BELTS } from '../constants';
+import NFTGallery from './NFTGallery';
+import UserOwnedNFTs from './UserOwnedNFTs';
+import ClaimNFTPage from './ClaimNFTPage';
 
 const NFTBeltsSection: React.FC = () => {
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [activeTab, setActiveTab] = useState<'all' | 'owned' | 'claim'>('claim');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,7 +37,7 @@ const NFTBeltsSection: React.FC = () => {
               Exclusive NFT Championship Belts awarded to tournament winners. <br />
               Own a piece of Web3 Battle Series history.
             </p>
-            
+
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 mb-12">
               <div className="px-6 py-3 rounded-full bg-purple-600/10 border border-purple-500/30 text-purple-400 font-orbitron font-bold text-xs tracking-widest uppercase animate-pulse">
                 Coming Soon
@@ -50,6 +54,50 @@ const NFTBeltsSection: React.FC = () => {
       {/* 3D Carousel Showcase */}
       <section className="relative z-20">
         <Carousel items={BELTS} />
+      </section>
+
+      {/* Minted NFTs Gallery with Tabs */}
+      <section className="relative z-10 pt-20">
+        {/* Tab Switcher */}
+        <div className="max-w-7xl mx-auto px-6 mb-12">
+          <div className="flex justify-center gap-4 flex-wrap">
+            <button
+              onClick={() => setActiveTab('claim')}
+              className={`px-8 py-4 font-orbitron font-bold text-sm tracking-wider uppercase rounded-lg transition-all ${activeTab === 'claim'
+                ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-600/30'
+                : 'bg-white/5 text-gray-400 hover:bg-white/10 border border-white/10'
+                }`}
+            >
+              <i className="fas fa-plus-circle mr-2"></i>
+              Claim NFTs
+            </button>
+            <button
+              onClick={() => setActiveTab('all')}
+              className={`px-8 py-4 font-orbitron font-bold text-sm tracking-wider uppercase rounded-lg transition-all ${activeTab === 'all'
+                ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-600/30'
+                : 'bg-white/5 text-gray-400 hover:bg-white/10 border border-white/10'
+                }`}
+            >
+              <i className="fas fa-trophy mr-2"></i>
+              All Belts
+            </button>
+            <button
+              onClick={() => setActiveTab('owned')}
+              className={`px-8 py-4 font-orbitron font-bold text-sm tracking-wider uppercase rounded-lg transition-all ${activeTab === 'owned'
+                ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-600/30'
+                : 'bg-white/5 text-gray-400 hover:bg-white/10 border border-white/10'
+                }`}
+            >
+              <i className="fas fa-user mr-2"></i>
+              My Collection
+            </button>
+          </div>
+        </div>
+
+        {/* Conditional Rendering based on active tab */}
+        {activeTab === 'claim' && <ClaimNFTPage />}
+        {activeTab === 'all' && <NFTGallery />}
+        {activeTab === 'owned' && <UserOwnedNFTs />}
       </section>
 
       {/* Stats/Utility Grid Section */}
@@ -83,7 +131,7 @@ const NFTBeltsSection: React.FC = () => {
       <section id="waitlist" className="max-w-7xl mx-auto px-6 py-20">
         <div className="relative super-glass p-12 md:p-24 rounded-3xl border border-white/10 overflow-hidden shadow-2xl">
           <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-purple-600/10 via-transparent to-transparent pointer-events-none"></div>
-          
+
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <div className="text-[11px] font-orbitron font-black tracking-[0.5em] text-purple-500 uppercase mb-6">Join the Registry</div>
@@ -93,9 +141,9 @@ const NFTBeltsSection: React.FC = () => {
 
             <form onSubmit={handleSubmit} className="relative space-y-5">
               <div className="flex flex-col sm:flex-row gap-4">
-                <input 
-                  type="email" 
-                  placeholder="ENTER EMAIL ADDRESS" 
+                <input
+                  type="email"
+                  placeholder="ENTER EMAIL ADDRESS"
                   required
                   className="flex-grow bg-white/5 border border-white/10 px-8 py-5 rounded focus:outline-none focus:border-purple-600 transition-all text-white placeholder:text-gray-700 font-bold"
                   value={email}

@@ -1,0 +1,156 @@
+[
+  {
+    "name": "THE SILICON SOVEREIGN",
+    "description": "Forged for the masters of neural networks and decentralized data silos. Awarded to the protocol that bridges the gap between intelligence and the chain.",
+    "background_color": "#2563EB",
+    "image": "AI AND DATA.jpg",
+    "animation_url": "AI AND DATA.MP4",
+    "supply": "250",
+    "attributes": [
+      {
+        "trait_type": "Category",
+        "value": "AI and Data"
+      },
+      {
+        "trait_type": "Gradient",
+        "value": "from-blue-600 to-indigo-900"
+      },
+      {
+        "trait_type": "Rarity",
+        "value": "Limited Edition"
+      }
+    ]
+  },
+  {
+    "name": "LIQUIDITY LEGEND",
+    "description": "The titan of the open financial system. Awarded to the protocol that best manages capital efficiency and yield innovation.",
+    "background_color": "#9333EA",
+    "image": "DEFI.jpg",
+    "animation_url": "DEFI.MP4",
+    "supply": "250",
+    "attributes": [
+      {
+        "trait_type": "Category",
+        "value": "DeFi"
+      },
+      {
+        "trait_type": "Gradient",
+        "value": "from-purple-600 to-violet-900"
+      },
+      {
+        "trait_type": "Rarity",
+        "value": "Limited Edition"
+      }
+    ]
+  },
+  {
+    "name": "METAVERSE MONARCH",
+    "description": "The ultimate prize for digital worlds. Held by the project that builds the most immersive, sustainable, and fair gaming ecosystem.",
+    "background_color": "#DB2777",
+    "image": "GAMEFI AND METAVERSE.jpg",
+    "animation_url": "GAMEFI AND METAVERSE.MP4",
+    "supply": "250",
+    "attributes": [
+      {
+        "trait_type": "Category",
+        "value": "GameFi and Metaverse"
+      },
+      {
+        "trait_type": "Gradient",
+        "value": "from-pink-600 to-purple-800"
+      },
+      {
+        "trait_type": "Rarity",
+        "value": "Limited Edition"
+      }
+    ]
+  },
+  {
+    "name": "INFRASTRUCTURE ICON",
+    "description": "The foundation of the decentralized web. This belt recognizes the architectural brilliance required to scale the future of global computation.",
+    "background_color": "#059669",
+    "image": "L1 L2.jpg",
+    "animation_url": "L1 L2.MP4",
+    "supply": "250",
+    "attributes": [
+      {
+        "trait_type": "Category",
+        "value": "L1 and L2 Infrastructure"
+      },
+      {
+        "trait_type": "Gradient",
+        "value": "from-emerald-600 to-teal-900"
+      },
+      {
+        "trait_type": "Rarity",
+        "value": "Limited Edition"
+      }
+    ]
+  },
+  {
+    "name": "CULTURE CHAMPION",
+    "description": "The belt of the people. Awarded to the community-driven force that transforms internet culture into a formidable economic movement.",
+    "background_color": "#EAB308",
+    "image": "MEMECOINS.jpg",
+    "animation_url": "MEMECOINS.MP4",
+    "supply": "250",
+    "attributes": [
+      {
+        "trait_type": "Category",
+        "value": "Memecoins"
+      },
+      {
+        "trait_type": "Gradient",
+        "value": "from-yellow-500 to-orange-700"
+      },
+      {
+        "trait_type": "Rarity",
+        "value": "Limited Edition"
+      }
+    ]
+  },
+  {
+    "name": "VALUE VELOCITY",
+    "description": "Frictionless, borderless, and instantaneous. This trophy belongs to the pioneer of the most efficient on-chain transaction layer.",
+    "background_color": "#06B6D4",
+    "image": "PAYMENT.jpg",
+    "animation_url": "PAYMENT.MP4",
+    "supply": "250",
+    "attributes": [
+      {
+        "trait_type": "Category",
+        "value": "Payment"
+      },
+      {
+        "trait_type": "Gradient",
+        "value": "from-cyan-500 to-blue-700"
+      },
+      {
+        "trait_type": "Rarity",
+        "value": "Limited Edition"
+      }
+    ]
+  },
+  {
+    "name": "PEGGED POWERHOUSE",
+    "description": "The anchor of the crypto economy. Held by the issuer of the most resilient and transparent store of value in the Web3 Battle Series.",
+    "background_color": "#9CA3AF",
+    "image": "STABLECOINS.jpg",
+    "animation_url": "STABLECOINS.MP4",
+    "supply": "250",
+    "attributes": [
+      {
+        "trait_type": "Category",
+        "value": "Stablecoins"
+      },
+      {
+        "trait_type": "Gradient",
+        "value": "from-gray-400 to-slate-800"
+      },
+      {
+        "trait_type": "Rarity",
+        "value": "Limited Edition"
+      }
+    ]
+  }
+]
