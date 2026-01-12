@@ -135,6 +135,6 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 
 **Parabolic DAO**
 
-- Twitter: [@ParabolicDAO](https://twitter.com/ParabolicDAO)
+- Twitter: [@0xParabolicDAO](https://twitter.com/0xParabolicDAO)
 - GitHub: [@mikky69](https://github.com/mikky69)
 
